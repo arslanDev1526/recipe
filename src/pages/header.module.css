@@ -1,0 +1,28 @@
+
+
+.nav-img { 
+  width: 2rem;
+ }
+
+.icon {
+  margin-right: 0.5rem;
+  color: rgba(0, 0, 0, 0.3);
+  font-size: 1.3rem;
+}
+
+.nav-links {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.active { 
+    color: orange;
+}
+
+.Navbar {
+  background-color: #fff ;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+  /* border: solid red 1px; */
+}
+

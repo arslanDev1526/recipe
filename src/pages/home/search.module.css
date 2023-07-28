@@ -1,0 +1,29 @@
+body {
+  background-color: rgba(248, 246, 242, 1);
+}
+
+.icon-search {
+  margin-left: 0.93rem;
+}
+.form {
+  width: 35%;
+
+}
+
+.control:focus {
+  box-shadow: none !important;
+  border: none !important;
+
+ /* border: solid red 1px !important; */
+}
+
+.custom-btn {
+  background-color: orange;
+  color: #fff;
+  width: 22%;
+  border: none;
+}
+
+.custom-btn:hover {
+  opacity: 0.7;
+}
