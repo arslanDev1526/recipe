@@ -1,4 +1,4 @@
-import React from "react";
+      import React from "react";
 import { Container } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
 import styles from "./footer.module.css";
@@ -9,7 +9,7 @@ const Footer = () => {
     location.pathname === "/home/createRecipe" ? null : (
     <>
     <div className={`${styles.footer}`}>
-      <Container >
+      <Container className={`pt-4`} >
         <div className={`d-flex gap-5`}>
           <div className="w-75">
             <h3> About Us </h3>

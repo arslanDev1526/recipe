@@ -1,0 +1,65 @@
+.profile-img {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 10rem;
+}
+
+
+
+
+.tab-button  { 
+
+
+  background-color: white;
+  border: none;
+  cursor: pointer;
+
+}
+
+.active { 
+  border-bottom:solid orange 2px ;
+}
+
+.tab1-input { 
+  border: none !important;
+  background-color: rgba(248, 246, 242, 1);
+  /* color: #f93; */
+}
+
+.tab1-input:focus { 
+  /* color: orange; */
+  outline: none;
+  border: blue 1px solid;
+}
+
+.tab1-btn { 
+  background-color: rgb(224, 220, 211);
+  border: none;
+  color: black;
+
+  padding: 0 20px 0px 20px;
+}
+
+.tab1-btn:hover{ 
+  background-color: rgba(224, 220, 211, .7);
+}
+
+
+.tab2-text { 
+  height: 400px;
+
+
+}
+
+
+
+.saved-link { 
+  text-decoration: none;
+  background-color: #4a4a4a;
+  color: white;
+}
+
+.saved-link:hover { 
+  opacity: .9;
+}
+

@@ -39,14 +39,10 @@ function Header() {
               SpiceCraft
             </Navbar.Brand>
           </div>
-          {/* {isSearchRoute && <SearchBox className="border border-primary" />} */}
-          <Nav className="">
 
-        
+          <Nav className="">
             <div className="d-flex  mx-3">
               <FontAwesomeIcon className={styles.icon} icon={faHome} />
-
-             
 
               <NavLink
                 to="/home"
@@ -54,8 +50,7 @@ function Header() {
                   isActiveLink("/home") ? styles.active : ""
                 } `}
               >
-                {" "}
-                Home{" "}
+                Home
               </NavLink>
             </div>
             <div className="d-flex  mx-3">

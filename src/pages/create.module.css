@@ -1,4 +1,29 @@
 .create-container { 
-    border: solid red 1px;
+  
     height: 300px;
 }
+
+
+.create { 
+    background-color: #4a4a4a;
+}
+
+.main-text {
+    text-decoration: none;
+    color: white;
+
+  }
+
+  .tips-parent { 
+    background-color: #4a4a4a;
+  }
+
+  .tips { 
+    text-decoration: none;
+    color: white;
+  }
+
+  .drafts{ 
+    margin-left: 21rem;
+    margin-bottom: 50px;
+  }

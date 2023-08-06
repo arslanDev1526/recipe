@@ -6,52 +6,62 @@ import Card from "react-bootstrap/Card";
 import styles from "./cards.module.css";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-// import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { BorderdHerat } from "./svgs";
+
+export const Next = (props) => {
+  const { className, style, onClick } = props;
+
+  console.log( "styles here", {...style });
+  return (
+    <div
+      className={className}
+      onClick={onClick}
+      style={{ ...style, marginRight:"64px" }}
+    >
+      Next
+    </div>
+
+
+  );
+};
+
+export const Prev = (props) => {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      onClick={onClick}
+      style={{ ...style, marginLeft: "14px" , zIndex: "1"  }}
+    >
+      Previous
+    </div>
+  );
+};
 
 function CookCard({ cardsData }) {
-  // const [sliderRef, setSliderRef] = useState(null);
-
   const settings = {
     slidesToShow: 3,
     slidesToScroll: 1,
     infinite: false,
+    nextArrow: <Next />,
+    prevArrow: <Prev />,
   };
 
   return (
     <Container className="my-5">
       <div className="d-flex">
         <div>
-          <svg
-            className="fs-4 w-100 "
-            xmlns="http://www.w3.org/2000/svg"
-            width="25"
-            height="25"
-            fill="currentColor"
-            class="bi bi-chat-square-heart"
-            viewBox="0 0 16 16"
-          >
-            <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-2.5a2 2 0 0 0-1.6.8L8 14.333 6.1 11.8a2 2 0 0 0-1.6-.8H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12ZM2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2Z" />
-            <path d="M8 3.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z" />
-          </svg>
+          <BorderdHerat />
         </div>
 
         <h4 className=" mx-2 mb-3">Latest Cooksnap</h4>
       </div>
 
-      
-        {/* <div  >
-        <button onClick={sliderRef?.slickPrev}>
-          <FaChevronRight/>
-        </button>
-
-       
-        </div> */}
-        <div className="">
+      <div className="">
         <Slider {...settings}>
           {cardsData.map((item, index) => (
             <div key={index}>
-              <div className="d-flex gap-2">
+              {/* <div className="d-flex gap-2">
                 <div>
                   <img
                     className="rounded-4"
@@ -63,7 +73,7 @@ function CookCard({ cardsData }) {
                   <span>{item.profileName}</span>
                   <span className="pb-2">{item.time}</span>
                 </div>
-              </div>
+              </div> */}
               <Card style={{ width: "321px" }}>
                 <Card.Body>
                   <div className="d-flex gap-3">
@@ -79,7 +89,6 @@ function CookCard({ cardsData }) {
                       <p>{item.comment}</p>
 
                       <div className="d-flex gap-2">
-                      
                         {item.svgCode}
 
                         <p className="mb-2"> {item.additionCom}</p>
@@ -116,9 +125,6 @@ function CookCard({ cardsData }) {
             </div>
           ))}
         </Slider>
-        {/* <button onClick={sliderRef?.slickNext}>
-            <FaChevronLeft />
-          </button> */}
       </div>
     </Container>
   );

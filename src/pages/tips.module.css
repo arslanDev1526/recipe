@@ -1,0 +1,27 @@
+.tips-input {
+  width: 39rem;
+  background-color: rgba(248, 246, 242, 1);
+  border: none;
+}
+
+.tips-input:focus {
+  outline: none;
+}
+
+.tips-textarea {
+  width: 37rem;
+  border: none;
+  background-color: rgba(248, 246, 242, 1);
+  resize: vertical;
+}
+
+.tips-textarea:focus { 
+    outline: none;
+}
+
+.upload { 
+    width:37rem ;
+    height: 500px;
+    margin-right: 30px;
+    background-color: rgba(248, 246, 242, 1);
+}
