@@ -1,7 +1,9 @@
 import React from "react";
 import { Container } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
-import styles from "./cards.module.css";
+// import styles from "./cards.module.css";
+
+import styles from "./recentrecipes.module.css";
 
 const SampleCard = ({ cards }) => {
 

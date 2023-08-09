@@ -1,12 +1,16 @@
-      import React from "react";
+ import React from "react";
 import { Container } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
 import styles from "./footer.module.css";
 
 const Footer = () => {
   const location = useLocation();
-  return location.pathname === "/home/categ" ||
-    location.pathname === "/home/createRecipe" ? null : (
+
+const ignoreRoutes = ["/" , "/signin", "/home/categ", "/home/createRecipe"]
+
+if(ignoreRoutes.includes(window.location.pathname )) return null
+
+  return  (
     <>
     <div className={`${styles.footer}`}>
       <Container className={`pt-4`} >

@@ -6,7 +6,7 @@ import Card from "react-bootstrap/Card";
 import styles from "./cards.module.css";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
-import { BorderdHerat } from "./svgs";
+import { BorderdHerat } from "../svgs";
 
 export const Next = (props) => {
   const { className, style, onClick } = props;
@@ -61,19 +61,7 @@ function CookCard({ cardsData }) {
         <Slider {...settings}>
           {cardsData.map((item, index) => (
             <div key={index}>
-              {/* <div className="d-flex gap-2">
-                <div>
-                  <img
-                    className="rounded-4"
-                    src={item.profileImg}
-                    alt="Profile"
-                  />
-                </div>
-                <div className="d-flex flex-column">
-                  <span>{item.profileName}</span>
-                  <span className="pb-2">{item.time}</span>
-                </div>
-              </div> */}
+           
               <Card style={{ width: "321px" }}>
                 <Card.Body>
                   <div className="d-flex gap-3">

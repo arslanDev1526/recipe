@@ -2,8 +2,8 @@ import React from "react";
 import { Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import styles from "./create.module.css";
-import { CreateRecipeWhite } from "./home/svgs";
-import { Tips } from "./home/svgs";
+import { CreateRecipeWhite } from "../home/svgs";
+import { Tips } from "../home/svgs";
 
 const Create = () => {
   return (

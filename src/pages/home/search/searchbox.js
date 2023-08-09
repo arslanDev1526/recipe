@@ -1,7 +1,7 @@
 import React from "react";
 import { Form } from "react-bootstrap";
 import { FaSearch } from "react-icons/fa";
-import styles from "./search.module.css";
+import styles from "./searchbox.module.css";
 
 const SearchBox = () => {
   return (

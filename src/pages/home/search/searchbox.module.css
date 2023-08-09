@@ -10,6 +10,10 @@ body {
 
 }
 
+.logo {
+  height: 100px;
+}
+
 .control:focus {
   box-shadow: none !important;
   border: none !important;

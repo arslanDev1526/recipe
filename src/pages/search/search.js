@@ -1,8 +1,8 @@
 import React from "react";
-import SearchBox from "./home/searchbox";
+import SearchBox from "../home/search/searchbox";
 import { Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import styles from "./home/categ.module.css";
+import styles from "./search.module.css";
 
 const Search = () => {
   return (

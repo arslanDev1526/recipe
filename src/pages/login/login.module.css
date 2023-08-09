@@ -1,0 +1,16 @@
+.signup-btn { 
+
+    border: none;
+    background-color: orange;
+    text-decoration: none;
+    color: black;
+
+   
+}
+
+.signup-btn:hover { 
+
+    opacity: .9;
+    cursor: pointer;
+    /* background-color: red; */
+}

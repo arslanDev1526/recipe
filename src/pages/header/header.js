@@ -10,10 +10,17 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import SearchBox from "./home/searchbox";
+import SearchBox from "../home/search/searchbox";
 
 function Header() {
   const location = useLocation();
+
+  const ignoreRoutes = [ "/" , "/signin" ]
+
+  if(ignoreRoutes.includes(window.location.pathname )) return null
+
+
+  
 
   const isSearchRoute = location.pathname === "/search";
 

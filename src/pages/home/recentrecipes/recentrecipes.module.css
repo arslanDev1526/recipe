@@ -1,0 +1,24 @@
+.container {
+    margin-top: 5rem;
+  
+  }
+  
+  .card-profile {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .container-header {
+    width: 18rem;
+  
+  }
+  
+  .card-hearth-btn {
+    border: none;
+    width: 3rem;
+    height: 1.5rem;
+    border-radius: 15px;
+    background-color: rgb(236 235 233);
+  }
