@@ -7,73 +7,98 @@ import { faSquarePlus } from "@fortawesome/free-solid-svg-icons";
 import { faEnvelopeOpen } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import styles from "./header.module.css";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import NavLink from "react-bootstrap/NavLink";
 // import SearchBox from "../home/search/searchbox";
+
+
+const navItems = [
+  {
+    icon: faHome,
+    redirectPath: "/home",
+    label: "Home",
+  },
+  {
+    icon: faMagnifyingGlass,
+    redirectPath: "/search",
+    label: "Search",
+  },
+  {
+    icon: faSquarePlus,
+    redirectPath: "/create",
+    label: "Create",
+  },
+  {
+    icon: faEnvelopeOpen,
+    redirectPath: "/activity",
+    label: "Activity",
+  },
+  {
+    icon: faUser,
+    redirectPath: "/profile",
+    label: "Profile",
+  },
+]
+
+
+const useIsActiveLink = (link) => {
+  const location = useLocation();
+  return location.pathname === link;
+};
+
+const LinkItem = ({
+  icon,
+  eventKey,
+  redirectPath,
+  label
+}) => {
+  const isActiveLink = useIsActiveLink(redirectPath)
+
+  return (<div className="d-flex gap-1 gap-sm-0">
+    <FontAwesomeIcon className={styles.icon} icon={icon} />
+    <NavLink
+      as={Link}
+      eventKey={String(eventKey)}
+      to={redirectPath}
+      className={` ${styles["nav-links"]} ${isActiveLink ? styles.active : ""
+        } `}
+    >
+      {label}
+
+    </NavLink>
+  </div>)
+}
 
 function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false);
-  const ref = useRef()
-
-
-  const toggleNav = () => {
-    // debugger
-    if (!isNavOpen) setIsNavOpen(true);
-    else {
-        setIsNavOpen(false)
-        ref.current.classList.remove("show")
-    }
-}
-
-//   const toggleNav = () => {
-  
-  
-//    if(isNavOpen){ 
-//     if ( ref.current.classList.contains('show')) { 
-//       setIsNavOpen(false)
-     
-//       ref.current.classList.remove("show");
-//       return
-//      }
-//    }
-  
-//    setIsNavOpen(true)
-//   //  ref.current.classList.add("show");
-// }
-
-  // const handleClose = () => {
-  //   console.log("handleClose i am close");
-  //   setIsNavOpen(false);
-  // };
-
-  // const handleNavLinkClick = () => {
-  //   if (isNavOpen) {
-  //     setIsNavOpen(false);
-  //   }
-  // };
   const location = useLocation();
 
-  const ignoreRoutes = ["/", "/signin"];
 
-  if (ignoreRoutes.includes(window.location.pathname)) return null;
+  const toggleNav = (e) => {
+    setIsNavOpen(isNavOpen => !isNavOpen)
+  }
+
+
+  const ignoreRoutes = ["/", "/signin"];
+  if (ignoreRoutes.includes(location.pathname)) return null;
 
   const isSearchRoute = location.pathname === "/search";
 
-  const isActiveLink = (link) => {
-    return location.pathname === link;
-  };
+
 
   return (
     <>
       <Navbar
-        // onSelect={handleNavLinkClick}
         className={`fixed-top ${styles.Navbar}`}
-        collapseOnSelect
+        collapseOnSelect={true}
         expand="sm"
         bg="#3b82f680"
         data-bs-theme=" "
+        onToggle={toggleNav}
+        onSelect={() => setIsNavOpen(true)}
       >
         <Container className={`${styles.wrapper}`}>
           <div
@@ -91,7 +116,6 @@ function Header() {
             </Navbar.Brand>
           </div>
           <Navbar.Toggle
-            onClick={toggleNav}
             className={` ${styles["nav-toggle"]}`}
             aria-controls="resposive-navbar-nav"
           >
@@ -102,73 +126,28 @@ function Header() {
             )}
           </Navbar.Toggle>
 
-          <Navbar.Collapse ref={ref} >
-            <Nav className={` d-flex align-items-center gap-4  ${styles.nav}`}>
-              <div className="d-flex gap-1 gap-sm-0">
-                <FontAwesomeIcon className={styles.icon} icon={faHome} />
-
-                <NavLink
-                  to="/home"
-                  className={` ${styles["nav-links"]} ${
-                    isActiveLink("/home") ? styles.active : ""
-                  } `}
-                  onClick={toggleNav}
-                >
-                  Home
-               
-                </NavLink>
-              </div>
-              <div className="d-flex gap-1 mx-1 gap-sm-0 mx-sm-0">
-                <FontAwesomeIcon
-                  className={styles.icon}
-                  icon={faMagnifyingGlass}
-                />
-
-                <NavLink
-                  to="/search"
-                  className={`${styles["nav-links"]} ${
-                    isActiveLink("/search") ? styles.active : ""
-                  }`}
-                >
-                  Search
-                </NavLink>
-              </div>
-              <div className="d-flex gap-1 mx-3 gap-sm-0  mx-sm-0">
-                <FontAwesomeIcon className={styles.icon} icon={faSquarePlus} />
-                <NavLink
-                  to="/create"
-                  className={`${styles["nav-links"]} ${
-                    isActiveLink("/create") ? styles.active : ""
-                  }`}
-                >
-                  Create
-                </NavLink>
-              </div>
-              <div className="d-flex gap-1 mx-3 gap-sm-0 mx-sm-0">
-                <FontAwesomeIcon
-                  className={styles.icon}
-                  icon={faEnvelopeOpen}
-                />
-                <Link
-                  className={`${styles["nav-links"]} ${
-                    isActiveLink("/activity") ? styles.active : ""
-                  }`}
-                  to="/activity"
-                >
-                  Activity
-                </Link>
-              </div>
-              <div className="d-flex gap-1 mx-3 gap-sm-0 mx-sm-0">
-                <FontAwesomeIcon className={styles.icon} icon={faUser} />
-                <Link
-                  className={`${styles["nav-links"]} ${
-                    isActiveLink("/profile") ? styles.active : ""
-                  }`}
-                  to="/profile"
-                >
-                  Profile
-                </Link>
-              </div>
+          <Navbar.Collapse
+          >
+            <Nav>
+              {
+                navItems.map(({
+                  icon,
+                  redirectPath,
+                  label
+                }, index) => {
+                  return (
+                    <LinkItem
+                      key={index}
+                      eventKey={index}
+                      label={label}
+                      icon={icon}
+                      redirectPath={redirectPath}
+                    />
+                  )
+                })
+              }
+              <LinkItem
+              />
             </Nav>
           </Navbar.Collapse>
         </Container>
