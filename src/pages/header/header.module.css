@@ -1,8 +1,32 @@
+.logo {
+  width: 19rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 3rem;
+  border: solid 1px #333;
+}
 
+.nav { 
+  border: solid 1px #333;
+}
 
-.nav-img { 
-  width: 2rem;
- }
+.wrapper { 
+  border: solid red 1px;
+  display: flex;
+  justify-content: space-between;
+  /* gap: 20rem */
+  ;
+}
+
+.nav-toggle {
+  text-decoration: none;
+  border: solid orange 1px;
+  outline: none;
+}
+
+.nav-img {
+  width: 2.5rem;
+}
 
 .icon {
   margin-right: 0.5rem;
@@ -15,14 +39,36 @@
   color: rgba(0, 0, 0, 0.3);
 }
 
-.active { 
-    color: orange;
+.active {
+  color: orange;
 }
 
 .Navbar {
-  background-color: #fff ;
+  background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border: solid 1px #337;
 
-  /* border: solid red 1px; */
+  /* width: 100%; */
 }
 
+@media (min-width: 768px) {
+  .nav {
+    margin-left: 5rem;
+  }
+
+  .logo {
+    padding: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .nav {
+    margin-left: 12rem;
+  
+  
+ 
+  }
+  .logo {
+    width: 10rem;
+  }
+}

@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./createRecipe.module.css";
 import { Container } from "react-bootstrap";
-import { Hamerurger, ThreeDots } from "../svgs";
+import { Hamerburger, ThreeDots } from "../../../components/index";
 
 const Ingredients = () => {
   return (
@@ -11,7 +11,7 @@ const Ingredients = () => {
         <div className="px-3 py-3 d-flex justify-content-center gap-3 flex-column align-items-center">
           {[1, 2, 3].map((index) => (
             <div key={index} className="d-flex align-items-center gap-2 w-100">
-              <Hamerurger />
+              <Hamerburger />
 
               <input
                 className={` w-100 p-2 ${styles.input}`}

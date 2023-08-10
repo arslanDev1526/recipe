@@ -6,7 +6,7 @@ import Card from "react-bootstrap/Card";
 import styles from "./cards.module.css";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
-import { BorderdHerat } from "../svgs";
+import { BorderHeart } from "../../../components/index";  
 
 export const Next = (props) => {
   const { className, style, onClick } = props;
@@ -51,7 +51,7 @@ function CookCard({ cardsData }) {
     <Container className="my-5">
       <div className="d-flex">
         <div>
-          <BorderdHerat />
+          <BorderHeart />
         </div>
 
         <h4 className=" mx-2 mb-3">Latest Cooksnap</h4>

@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./profile.module.css";
 import { Button } from "react-bootstrap";
-import { Search } from "../home/svgs";
+import { Search } from "../../components/index";
 
 const Saved = () => {
   return (

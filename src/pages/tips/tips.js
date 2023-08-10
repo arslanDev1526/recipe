@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./tips.module.css";
-import { ThreeDots } from "../home/svgs";
+import { ThreeDots } from "../../components/index";
 
 const Tips = () => {
   return (

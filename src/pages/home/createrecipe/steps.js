@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./createRecipe.module.css";
 import { Dropdown, Container } from "react-bootstrap";
-import { Hamerurger, Camera,ThreeDots } from "../svgs";
+import { Hamerburger, Camera,ThreeDots } from "../../../components/index";
 
 
 const Steps = () => {
@@ -19,7 +19,7 @@ const Steps = () => {
             className="px-3 py-3 d-flex justify-content-center gap-3 flex-column align-items-center"
           >
             <div className="d-flex align-items-center gap-2 w-100">
-              <Hamerurger />
+              <Hamerburger />
               <textarea
                 className={`w-100 ${styles["custome-textarea"]}`}
                 rows={1}

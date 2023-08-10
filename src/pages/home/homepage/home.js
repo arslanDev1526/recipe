@@ -6,7 +6,7 @@ import SampleCard from "../recentrecipes/sampleCard";
 import data from "../recentrecipes/data";
 import CookCard from "../cooksnap/cookCard";
 import cardData from "../cooksnap/cookdata";
-import { CreateRecipe } from "../svgs";
+import { CreateRecipe } from "../../../components/index";
 
 const Home = () => {
   return (
