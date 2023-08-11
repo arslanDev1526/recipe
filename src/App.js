@@ -42,7 +42,7 @@ const App = () => {
           <Route path="*" element={<NoMatch />} />
         </Routes>
 
-        {/* {window.location.pathname !== "/login/signin" ? <Footer /> : <></>}   */}
+        {window.location.pathname !== "/login/signin" ? <Footer /> : <></>}  
       </Router>
     </div>
   );
