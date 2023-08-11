@@ -1,7 +1,12 @@
 .container {
-    margin-top: 5rem;
+    margin-top: 2.5rem;
   
   }
+  
+.wrapper { 
+  margin-left: 2rem;
+  margin-top: 2.5rem;
+}
   
   .card-profile {
     width: 2.5rem;
@@ -12,6 +17,7 @@
   
   .container-header {
     width: 18rem;
+    /* border: solid red 2px; */
   
   }
   
@@ -21,4 +27,13 @@
     height: 1.5rem;
     border-radius: 15px;
     background-color: rgb(236 235 233);
+  }
+
+
+ 
+  @media (min-width: 768px) {
+    .wrapper { 
+      margin-left: 0rem;
+      margin-top: 2.5rem;
+    }
   }

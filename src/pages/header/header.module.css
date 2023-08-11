@@ -3,24 +3,20 @@
   padding-top: 1rem;
   padding-bottom: 1rem;
   padding-left: 3rem;
-  border: solid 1px #333;
 }
 
-.nav { 
-  border: solid 1px #333;
+.nav {
+
 }
 
-.wrapper { 
-  border: solid red 1px;
+.wrapper {
   display: flex;
   justify-content: space-between;
-  /* gap: 20rem */
-  ;
 }
 
 .nav-toggle {
   text-decoration: none;
-  border: solid orange 1px;
+
   outline: none;
 }
 
@@ -46,9 +42,6 @@
 .Navbar {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  border: solid 1px #337;
-
-  /* width: 100%; */
 }
 
 @media (min-width: 768px) {
@@ -64,9 +57,6 @@
 @media (min-width: 1024px) {
   .nav {
     margin-left: 12rem;
-  
-  
- 
   }
   .logo {
     width: 10rem;

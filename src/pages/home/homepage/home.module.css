@@ -1,22 +1,28 @@
 .logo {
-    height: 100px;
-  }
-  
+  height: 100px;
+}
+
+.categ {
+  background-color: #e9ecef;
+  text-decoration: none;
+  color: rgb(74 74 74);
+
+  margin-right: 24rem;
+}
+
+.create {
+  width: 10rem;
+  text-align: center;
+}
+
+.main-text {
+  text-decoration: none;
+  color: black;
+}
+
+@media (min-width: 768px) {
   .categ {
-    background-color: #e9ecef;
-    text-decoration: none;
-    color: rgb(74 74 74);
-  
-    margin-right: 24rem;
+    margin-right: 29rem;
   }
-  
-  .create {
-    width: 10rem;
-    text-align: center;
-  }
-  
-  .main-text {
-    text-decoration: none;
-    color: black;
-  }
-  
+
+}
