@@ -1,24 +1,34 @@
 .container {
-    margin-top: 5rem;
-  
+  margin-top: 2.5rem;
+}
+
+.wrapper {
+  margin-left: 2rem;
+  margin-top: 2.5rem;
+}
+
+.card-profile {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.container-header {
+  width: 18rem;
+}
+
+.card-hearth-btn {
+  border: none;
+  width: 3rem;
+  height: 1.5rem;
+  border-radius: 15px;
+  background-color: rgb(236 235 233);
+}
+
+@media (min-width: 768px) {
+  .wrapper {
+    margin-left: 0rem;
+    margin-top: 2.5rem;
   }
-  
-  .card-profile {
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 50%;
-    object-fit: cover;
-  }
-  
-  .container-header {
-    width: 18rem;
-  
-  }
-  
-  .card-hearth-btn {
-    border: none;
-    width: 3rem;
-    height: 1.5rem;
-    border-radius: 15px;
-    background-color: rgb(236 235 233);
-  }
+}

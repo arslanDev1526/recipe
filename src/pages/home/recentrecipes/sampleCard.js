@@ -9,13 +9,13 @@ const SampleCard = ({ cards }) => {
 
   return (
     <Container className={`${styles.container}`}>
-      <h4 className={`pb-3`}>Recent Recipes</h4>
+      <h4 className={`pb-2 px-4 px-sm-0`}>Recent Recipes</h4>
 
-      <div className={`d-flex flex-wrap justify-content-between align-items-center  g-2`}>
+      <div className={`d-flex  flex-wrap justify-content-between align-items-center g-2`}>
         {cards.map((card, index) => (
           <>
 
-          <div className={` my-3`}>
+          <div className={` ${styles.wrapper} `}>
             <div
               className={`d-flex justify-content-between mb-1 ${styles["container-header"]}`}
               key={index}
@@ -47,6 +47,8 @@ const SampleCard = ({ cards }) => {
               </Card.Body>
             </Card>
             </div>
+
+           
           </>
         ))}
       </div>

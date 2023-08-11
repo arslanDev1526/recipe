@@ -8,11 +8,10 @@ import { faEnvelopeOpen } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import styles from "./header.module.css";
 import { Link, useLocation } from "react-router-dom";
-import Container from "react-bootstrap/Container";   
+import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavLink from "react-bootstrap/NavLink";
-// import SearchBox from "../home/search/searchbox";
 
 const navItems = [
   {
@@ -51,13 +50,13 @@ const LinkItem = ({ icon, eventKey, redirectPath, label }) => {
   const isActiveLink = useIsActiveLink(redirectPath);
 
   return (
-    <div className="d-flex gap-1 gap-sm-0">
+    <div className="d-flex gap-2 justify-content-center align-items-center gap-sm-1 ">
       <FontAwesomeIcon className={styles.icon} icon={icon} />
       <NavLink
         as={Link}
         eventKey={String(eventKey)}
         to={redirectPath}
-        className={` ${styles["nav-links"]} ${
+        className={`p-sm-0 ${styles["nav-links"]} ${
           isActiveLink ? styles.active : ""
         } `}
       >
@@ -78,12 +77,10 @@ function Header() {
   const ignoreRoutes = ["/", "/signin"];
   if (ignoreRoutes.includes(location.pathname)) return null;
 
-  const isSearchRoute = location.pathname === "/search";
-
   return (
     <>
       <Navbar
-        className={`fixed-top ${styles.Navbar}`}
+        className={`fixed-top ${styles.navbar}`}
         collapseOnSelect={true}
         expand="sm"
         bg="#3b82f680"
@@ -118,7 +115,9 @@ function Header() {
           </Navbar.Toggle>
 
           <Navbar.Collapse>
-            <Nav>
+            <Nav
+              className={`mt-2 d-flex gap-2 justify-content-between ${styles.nav}`}
+            >
               {navItems.map(({ icon, redirectPath, label }, index) => {
                 return (
                   <LinkItem
