@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome } from "@fortawesome/free-solid-svg-icons";
@@ -8,12 +8,11 @@ import { faEnvelopeOpen } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import styles from "./header.module.css";
 import { Link, useLocation } from "react-router-dom";
-import Container from "react-bootstrap/Container";
+import Container from "react-bootstrap/Container";   
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavLink from "react-bootstrap/NavLink";
 // import SearchBox from "../home/search/searchbox";
-
 
 const navItems = [
   {
@@ -41,53 +40,45 @@ const navItems = [
     redirectPath: "/profile",
     label: "Profile",
   },
-]
-
+];
 
 const useIsActiveLink = (link) => {
   const location = useLocation();
   return location.pathname === link;
 };
 
-const LinkItem = ({
-  icon,
-  eventKey,
-  redirectPath,
-  label
-}) => {
-  const isActiveLink = useIsActiveLink(redirectPath)
+const LinkItem = ({ icon, eventKey, redirectPath, label }) => {
+  const isActiveLink = useIsActiveLink(redirectPath);
 
-  return (<div className="d-flex gap-1 gap-sm-0">
-    <FontAwesomeIcon className={styles.icon} icon={icon} />
-    <NavLink
-      as={Link}
-      eventKey={String(eventKey)}
-      to={redirectPath}
-      className={` ${styles["nav-links"]} ${isActiveLink ? styles.active : ""
+  return (
+    <div className="d-flex gap-1 gap-sm-0">
+      <FontAwesomeIcon className={styles.icon} icon={icon} />
+      <NavLink
+        as={Link}
+        eventKey={String(eventKey)}
+        to={redirectPath}
+        className={` ${styles["nav-links"]} ${
+          isActiveLink ? styles.active : ""
         } `}
-    >
-      {label}
-
-    </NavLink>
-  </div>)
-}
+      >
+        {label}
+      </NavLink>
+    </div>
+  );
+};
 
 function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const location = useLocation();
 
-
   const toggleNav = (e) => {
-    setIsNavOpen(isNavOpen => !isNavOpen)
-  }
-
+    setIsNavOpen((isNavOpen) => !isNavOpen);
+  };
 
   const ignoreRoutes = ["/", "/signin"];
   if (ignoreRoutes.includes(location.pathname)) return null;
 
   const isSearchRoute = location.pathname === "/search";
-
-
 
   return (
     <>
@@ -126,28 +117,20 @@ function Header() {
             )}
           </Navbar.Toggle>
 
-          <Navbar.Collapse
-          >
+          <Navbar.Collapse>
             <Nav>
-              {
-                navItems.map(({
-                  icon,
-                  redirectPath,
-                  label
-                }, index) => {
-                  return (
-                    <LinkItem
-                      key={index}
-                      eventKey={index}
-                      label={label}
-                      icon={icon}
-                      redirectPath={redirectPath}
-                    />
-                  )
-                })
-              }
-              <LinkItem
-              />
+              {navItems.map(({ icon, redirectPath, label }, index) => {
+                return (
+                  <LinkItem
+                    key={index}
+                    eventKey={index}
+                    label={label}
+                    icon={icon}
+                    redirectPath={redirectPath}
+                  />
+                );
+              })}
+              <LinkItem />
             </Nav>
           </Navbar.Collapse>
         </Container>
@@ -157,38 +140,3 @@ function Header() {
 }
 
 export default Header;
-
-// import Container from 'react-bootstrap/Container';
-// import Nav from 'react-bootstrap/Nav';
-// import Navbar from 'react-bootstrap/Navbar';
-// import NavDropdown from 'react-bootstrap/NavDropdown';
-
-// function Header() {
-//   return (
-//     <Navbar expand="lg" className="bg-body-tertiary">
-//       <Container>
-//         <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
-//         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-//         <Navbar.Collapse id="basic-navbar-nav">
-//           <Nav className="me-auto">
-//             <Nav.Link href="#home">Home</Nav.Link>
-//             <Nav.Link href="#link">Link</Nav.Link>
-//             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-//               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-//               <NavDropdown.Item href="#action/3.2">
-//                 Another action
-//               </NavDropdown.Item>
-//               <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-//               <NavDropdown.Divider />
-//               <NavDropdown.Item href="#action/3.4">
-//                 Separated link
-//               </NavDropdown.Item>
-//             </NavDropdown>
-//           </Nav>
-//         </Navbar.Collapse>
-//       </Container>
-//     </Navbar>
-//   );
-// }
-
-// export default Header;
