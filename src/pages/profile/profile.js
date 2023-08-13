@@ -13,7 +13,7 @@ const Profile = () => {
   };
   return (
     <>
-      <Container className="my-4 border align-items-center gap-2 d-flex flex-column">
+      <Container className="my-4 align-items-center gap-2 d-flex flex-column">
         <ProfileImg />
 
         <Tabs activeTab={activeTab} handleTabClick={handleTabClick} />

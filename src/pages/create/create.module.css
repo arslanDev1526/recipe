@@ -1,29 +1,38 @@
-.create-container { 
-  
-    height: 300px;
+.create-container {
+  height: 300px;
+  width: 23rem;
 }
 
-
-.create { 
-    background-color: #4a4a4a;
+.create {
+  background-color: #4a4a4a;
 }
 
 .main-text {
-    text-decoration: none;
-    color: white;
+  text-decoration: none;
+  color: white;
+}
 
-  }
+.tips-parent {
+  background-color: #4a4a4a;
+}
 
-  .tips-parent { 
-    background-color: #4a4a4a;
-  }
+.tips {
+  text-decoration: none;
+  color: white;
+}
 
-  .tips { 
-    text-decoration: none;
-    color: white;
-  }
+.drafts {
+  height: 230px;
+}
 
-  .drafts{ 
-    margin-left: 21rem;
-    margin-bottom: 50px;
+@media (min-width: 768px) {
+  .create-container {
+    width: 43rem;
   }
+}
+
+@media (min-width: 1024px) {
+  .create-container {
+    width: 45rem;
+  }
+}

@@ -3,7 +3,7 @@ import React from 'react'
 const Recipe = () => {
   return (
 <> 
-<h1> no recipe added yet </h1>
+<h1 className='p-5'> No recipe added yet </h1>
 </>
   )
 }
