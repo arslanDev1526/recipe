@@ -1,0 +1,27 @@
+.input {
+  background-color: rgba(248, 246, 242, 1);
+  border: none;
+  width: 22rem;
+}
+
+@media (min-width: 768px) {
+  .input {
+    width: 35rem;
+  } 
+
+  .custome-container {
+    width: 38rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .input {
+    width: 42rem;
+
+  }
+
+  
+  .custome-container {
+    width: 45rem;
+  }
+}

@@ -1,0 +1,48 @@
+.recipeinfo-container {
+
+  background-color: white;
+}
+
+.input {
+  background-color: rgba(248, 246, 242, 1);
+  border: none;
+  width: 22rem;
+}
+
+.input-valid {
+  margin-left: 20rem;
+  font-size: 0.7rem;
+}
+
+.serves {
+  width: 22rem;
+}
+
+@media (min-width: 768px) {
+  .recipeinfo-container {
+    width: 38rem;
+  }
+  .input {
+    width: 35rem;
+  }
+  .serves {
+    width: 35rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .recipeinfo-container {
+    width: 45rem;
+  }
+
+  .input {
+    width: 42rem;
+  }
+
+  .serves {
+    width: 42rem;
+  }
+  .input-valid {
+    margin-left: 40rem;
+  }
+}

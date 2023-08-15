@@ -1,12 +1,12 @@
 import React from "react";
-import styles from "./createRecipe.module.css";
+import styles from "./ingredients.module.css";
 import { Container } from "react-bootstrap";
 import { Hamerburger, ThreeDots } from "../../../components/index";
 
 const Ingredients = () => {
   return (
     <>
-      <Container className={`my-3 py-2 ${styles["custome-container"]}`}>
+      <Container className={`my-3 py-2 bg-white ${styles["custome-container"]}`}>
         <h2>Ingredients</h2>
         <div className="px-3 py-3 d-flex justify-content-center gap-3 flex-column align-items-center">
           {[1, 2, 3].map((index) => (
@@ -14,7 +14,7 @@ const Ingredients = () => {
               <Hamerburger />
 
               <input
-                className={` w-100 p-2 ${styles.input}`}
+                className={`p-2 ${styles.input}`}
                 type="text"
                 placeholder="ineg"
               />

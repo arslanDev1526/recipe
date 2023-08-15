@@ -74,7 +74,7 @@ function Header() {
     setIsNavOpen((isNavOpen) => !isNavOpen);
   };
 
-  const ignoreRoutes = ["/", "/signin"];
+  const ignoreRoutes = ["/", "/signin","/home/categ", "/home/createRecipe"];
   if (ignoreRoutes.includes(location.pathname)) return null;
 
   return (

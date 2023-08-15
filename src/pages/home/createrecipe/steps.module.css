@@ -1,0 +1,61 @@
+.steps-container {
+  background-color: white;
+  width: 20rem;
+}
+
+.steps-input {
+  width: 20rem;
+}
+
+.steps-input:hover {
+  cursor: pointer;
+}
+
+.custome-textarea {
+  background-color: rgba(248, 246, 242, 1);
+  border: none;
+  outline: none;
+  resize: none;
+  overflow: hidden;
+  height: 78px;
+  width: 14rem;
+  padding: 5px;
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
+
+.dropdown-toggle:focus {
+  outline: none !important;
+}
+
+.steps-div {
+  width: 13rem;
+  height: 150px;
+  background-color: rgba(248, 246, 242, 1);
+}
+
+@media (min-width: 768px) {
+  .steps-input {
+    width: 35rem;
+  }
+
+  .steps-container {
+    width: 38rem;
+  }
+
+  .custome-textarea {
+    width: 30rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .steps-input {
+    width: 41rem;
+  }
+
+  .steps-container {
+    width: 45rem;
+  }
+}

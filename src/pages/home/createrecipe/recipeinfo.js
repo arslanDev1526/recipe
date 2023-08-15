@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./createRecipe.module.css";
+import styles from "./recipeinfo.module.css";
 
 import { Container } from "react-bootstrap";
 
@@ -41,30 +41,30 @@ const RecipeInfo = () => {
   };
   return (
     <>
-      <Container className={` ${styles["custome-container"]}`}>
-        <div className=" px-3 py-2 d-flex justify-content-center gap-3 flex-column align-items-center ">
+      <Container className={`d-flex justify-content-center align-items-center ${styles["recipeinfo-container"]}`}>
+        <div className="py-2 d-flex justify-content-between flex-column">
           <input
-            className={`w-100 p-2 ${styles.input}`}
+            className={` p-2 mt-2 ${styles.input}`}
             placeholder="Title:My best-ever pea soup"
             type="text"
           />
 
           <textarea
-            className={`w-100 p-2 ${styles.input}`}
+            className={`mt-3 p-2 ${styles.input}`}
             placeholder="Share a little more about recipe"
             cols={50}
             rows={5}
           ></textarea>
           <input
-            className={`w-100 p-2 ${styles.input}`}
+            className={`mt-2 p-2 ${styles.input}`}
             placeholder="Add recipe origin"
             type="text"
           />
 
-          <div className="d-flex justify-content-between  w-100">
-            <span> Servers </span>
+          <div className={`d-flex justify-content-between align-items-center ${styles.serves}`}>
+            <span className="mt-2"> Serves </span>
             <input
-              className={`w-50 p-2 ${styles.input} ${
+              className={`w-50 p-2 mt-3 ${styles.input} ${
                 serveValid.length >= 50 ? "border border-danger" : ""
               }`}
               placeholder="2 people"
@@ -78,13 +78,13 @@ const RecipeInfo = () => {
           </div>
 
           {isServeFocused && (
-            <span className={`${styles["input-valid"]}`}>
+            <span className={` ${styles["input-valid"]}`}>
               {" "}
               {serveValid.length} / 50
             </span>
           )}
 
-          <div className="d-flex justify-content-between  w-100">
+          <div className={`d-flex mt-3  justify-content-between align-items-center ${styles.serves}`}>
             <span> Cook time </span>
             <input
               className={`w-50 p-2 ${styles.input} ${

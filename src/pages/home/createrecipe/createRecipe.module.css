@@ -1,11 +1,26 @@
-.custome-container {
-  width: 44.125rem;
+/* .recipeinfo-container {
+  width: 24.5rem;
   background-color: white;
+}
+
+.steps-container { 
+  background-color: white;
+
+  width: 20rem;
+}
+
+.steps-input  {
+  width: 20rem;
 }
 
 .input {
   background-color: rgba(248, 246, 242, 1);
   border: none;
+  width: 22rem;
+}
+
+.serves {
+  width: 22rem;
 }
 
 .input:focus {
@@ -13,10 +28,8 @@
 }
 
 .input-valid {
-  position: relative;
-  bottom: 15px;
-  font-size: 13px;
-  left: 19.5rem;
+  margin-left: 20rem;
+  font-size: 0.7rem;
 }
 
 .custome-textarea {
@@ -25,8 +38,10 @@
   outline: none;
   resize: none;
   overflow: hidden;
-  overflow-wrap: break-word;
-  height: 48px;
+  
+  height: 78px;
+  width: 14rem;
+  padding: 5px;
 }
 
 .steps-div {
@@ -56,3 +71,64 @@
 .dropdown-toggle:focus {
   outline: none !important;
 }
+
+@media (min-width: 768px) {
+  .recipeinfo-container {
+    width: 38rem;
+  }
+
+  .input {
+    width: 35rem;
+  }
+
+  .serves {
+    width: 35rem;
+  }
+
+  .input-valid {
+    margin-left: 33rem;
+  }
+
+  .custome-container {
+    width: 38rem;
+  }
+
+
+  .steps-input { 
+    width: 35rem;
+  }
+
+  .custome-textarea { 
+    width: 32rem;
+  height: 60px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .recipeinfo-container {
+    width: 45rem;
+  }
+
+  .input {
+    width: 42rem;
+  }
+
+  .serves {
+    width: 42rem;
+  }
+
+  .input-valid {
+    margin-left: 40rem;
+  }
+
+  .custome-container {
+    width: 45rem;
+  
+  }
+
+
+  .steps-input { 
+    width: 41rem;
+  }
+
+} */
