@@ -1,7 +1,19 @@
+
+.custome-container { 
+
+  width: 23.4rem;
+}
+
 .input {
   background-color: rgba(248, 246, 242, 1);
   border: none;
   width: 22rem;
+}
+
+
+.input:focus { 
+
+  outline: none ;
 }
 
 @media (min-width: 768px) {

@@ -1,11 +1,9 @@
 .steps-container {
   background-color: white;
-  width: 20rem;
+  width: 23.4rem;
 }
 
-.steps-input {
-  width: 20rem;
-}
+
 
 .steps-input:hover {
   cursor: pointer;
@@ -34,6 +32,16 @@
   width: 13rem;
   height: 150px;
   background-color: rgba(248, 246, 242, 1);
+}
+
+.steps-icon { 
+
+ 
+  margin-bottom: -50px;
+  margin-left: 90px;
+
+  position: relative;
+  bottom: 60px;
 }
 
 @media (min-width: 768px) {

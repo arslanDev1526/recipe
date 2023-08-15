@@ -1,12 +1,19 @@
 .recipeinfo-container {
-
   background-color: white;
+   width: 23.4rem;
 }
 
 .input {
   background-color: rgba(248, 246, 242, 1);
   border: none;
-  width: 22rem;
+  width: 20rem;
+}
+
+
+
+.input:focus { 
+
+  outline: none;
 }
 
 .input-valid {
@@ -15,7 +22,7 @@
 }
 
 .serves {
-  width: 22rem;
+  width: 20rem;
 }
 
 @media (min-width: 768px) {

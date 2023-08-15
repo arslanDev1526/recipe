@@ -10,13 +10,13 @@ const Steps = () => {
   };
   return (
     <>
-      <Container className={`my-3 py-2 ${styles["steps-container"]}`}>
-        <h2>Steps</h2>
+      <div className={`py-2 mb-5 ${styles["steps-container"]}`}>
+        <h2 className="mx-4">Steps</h2>
 
-        {[1, 2, 3].map((index) => (
+        {[1,2,3].map((index) => (
           <div
             key={index}
-            className="px-3 py-3 d-flex justify-content-center gap-3 flex-column align-items-center"
+            className="d-flex flex-column align-items-center justify-content-between mt-3 gap-3"  
           >
             <div className={`d-flex align-items-center justify-content-sm-between gap-3 ${styles["steps-input"]}`}>
               <Hamerburger />
@@ -58,7 +58,7 @@ const Steps = () => {
             </div>
           </div>
         ))}
-      </Container>
+      </div>
     </>
   );
 };

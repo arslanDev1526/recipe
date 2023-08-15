@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./recipeinfo.module.css";
 
-import { Container } from "react-bootstrap";
+
 
 const RecipeInfo = () => {
   const [inputValue, setInputValue] = useState("");
@@ -41,10 +41,12 @@ const RecipeInfo = () => {
   };
   return (
     <>
-      <Container className={`d-flex justify-content-center align-items-center ${styles["recipeinfo-container"]}`}>
-        <div className="py-2 d-flex justify-content-between flex-column">
+      <div>
+        <div
+          className={`${styles["recipeinfo-container"]} py-2 d-flex justify-content-between flex-column gap-2 align-items-center`}
+        >
           <input
-            className={` p-2 mt-2 ${styles.input}`}
+            className={` py-2 mt-2 ${styles.input}`}
             placeholder="Title:My best-ever pea soup"
             type="text"
           />
@@ -61,7 +63,9 @@ const RecipeInfo = () => {
             type="text"
           />
 
-          <div className={`d-flex justify-content-between align-items-center ${styles.serves}`}>
+          <div
+            className={`d-flex justify-content-between align-items-center ${styles.serves}`}
+          >
             <span className="mt-2"> Serves </span>
             <input
               className={`w-50 p-2 mt-3 ${styles.input} ${
@@ -84,7 +88,9 @@ const RecipeInfo = () => {
             </span>
           )}
 
-          <div className={`d-flex mt-3  justify-content-between align-items-center ${styles.serves}`}>
+          <div
+            className={`d-flex mt-3  justify-content-between align-items-center ${styles.serves}`}
+          >
             <span> Cook time </span>
             <input
               className={`w-50 p-2 ${styles.input} ${
@@ -107,7 +113,7 @@ const RecipeInfo = () => {
             </span>
           )}
         </div>
-      </Container>
+      </div>
     </>
   );
 };
