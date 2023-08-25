@@ -23,7 +23,7 @@ const Create = () => {
               <CreateRecipeWhite />
 
               <Link
-                to="/home/createRecipe"
+                to="/createRecipe"
                 className={` mx-1 ${styles["main-text"]}`}
               >
                 Recipe
@@ -32,7 +32,7 @@ const Create = () => {
 
             <div className={` py-2 px-2 rounded ${styles["tips-parent"]}`}>
               <Tips />
-              <Link className={`mx-2 ${styles.tips}`} to="/create/tips">
+              <Link className={`mx-2 ${styles.tips}`} to="/tips">
                 Tips
               </Link>
             </div>
@@ -40,7 +40,7 @@ const Create = () => {
         </div>
       </Container>
 
-      <h3 className={` mt-4 mx-4 ${styles.drafts}`}> Drafts recipes </h3>
+      <h3 className={` mt-5 text-center ${styles.drafts}`}> Drafts recipes </h3>
     </>
   );
 };

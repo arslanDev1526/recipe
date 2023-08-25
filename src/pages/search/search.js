@@ -25,7 +25,7 @@ const Search = () => {
           {" "}
           <SearchBox />
           <Link
-            to="/home/categ"
+            to="/categ"
             className={`my-2 border p-1 rounded  ${styles.categ}`}
           >
             Categories

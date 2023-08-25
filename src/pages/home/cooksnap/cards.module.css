@@ -16,3 +16,20 @@
   border-radius: 15px;
   background-color: rgb(236 235 233);
 }
+
+.cooksnap {
+  margin-left: 1.5rem;
+
+}
+
+@media (min-width: 1024px) {
+  .cooksnap {
+    margin-left: 0.4rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .cooksnap {
+    margin-left: 2rem;
+  }
+}

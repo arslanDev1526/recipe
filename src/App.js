@@ -28,21 +28,17 @@ const App = () => {
           <Route path="/" element={<SignUp />} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/home/categ" element={<Categ />} />
-          <Route path="/home/createRecipe" element={<CreateRecipe />} />
+          <Route path="/categ" element={<Categ />} />
+          <Route path="/createRecipe" element={<CreateRecipe />} />
           <Route path="/search" element={<Search />} />
           <Route path="/create" element={<Create />} />
-          <Route path="/create/createRecipe" element={<CreateRecipe />} />
-          <Route path="/create/tips" element={<Tips />} />
+          <Route path="/tips" element={<Tips />} />
           <Route path="/activity" element={<Activity />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/profile/home/search" element={<Search />} />
-          <Route path="/profile/create/tips" element={<Tips />} />
-
           <Route path="*" element={<NoMatch />} />
         </Routes>
 
-        {window.location.pathname !== "/login/signin" ? <Footer /> : <></>}  
+        <Footer />
       </Router>
     </div>
   );

@@ -2,9 +2,14 @@
   margin-top: 2.5rem;
 }
 
+.Container > h4 {
+ margin-left: 2rem;
+ border: solid red 1px;
+}
+
 .wrapper {
   margin-left: 2rem;
-  margin-top: 2.5rem;
+  margin-top: 1rem;
 }
 
 .card-profile {
