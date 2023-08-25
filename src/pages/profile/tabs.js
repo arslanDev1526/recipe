@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./profile.module.css";
 
 const Tabs = ({ activeTab, handleTabClick }) => {
@@ -11,9 +11,9 @@ const Tabs = ({ activeTab, handleTabClick }) => {
 
   return (
     <>
-      <div className="border w-75 bg-white">
+      <div className={`bg-white ${styles["tabs-container"]}`}>
         <div className={` ${styles["custom-tabs"]}`}>
-          <div className={` w-50 d-flex justify-content-between`}>
+          <div className={`mx-2 mx-sm-0 col-sm-7 d-flex justify-content-between`}>
             {tabs.map((tab) => (
               <button
                 key={tab.id}

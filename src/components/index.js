@@ -7,3 +7,5 @@ export {MainCamera} from './svgs/maincamera';
 export {Search} from './svgs/search';
 export {ThreeDots} from './svgs/threedots';
 export {Tips } from './svgs/tips';
+export {DeleteIcon} from './svgs/delete';
+export {CommentSvg} from './svgs/commentsvg';

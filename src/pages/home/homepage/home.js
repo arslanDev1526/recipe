@@ -14,7 +14,7 @@ const Home = () => {
       <div
         className={`d-flex mt-3 justify-content-center align-items-center mt-5 ${styles.logo}`}
       >
-        <div className={`d-flex mt-5 `}>
+        <div className={`d-flex mt-5`}>
           <img
             className="w-25 h-50 mt-1  d-none d-sm-block"
             src="https://global-web-assets.cpcdn.com/assets/logo_circle-d106f02123de882fffdd2c06593eb2fd33f0ddf20418dd75ed72225bdb0e0ff7.png "
@@ -29,7 +29,7 @@ const Home = () => {
      
         <SearchBox />
         <Link
-          to="/home/categ"
+          to="/categ"
           className={`my-2 border p-1 rounded d-none d-sm-block  ${styles.categ}`}
         >
           Categories
@@ -41,7 +41,7 @@ const Home = () => {
           <CreateRecipe />
 
           <Link
-            to="/home/createRecipe"
+            to="/createRecipe"
             className={` mx-1 ${styles["main-text"]}`}
           >
             Create Recipe

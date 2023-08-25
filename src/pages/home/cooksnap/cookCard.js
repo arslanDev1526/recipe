@@ -37,7 +37,6 @@ export const Prev = (props) => {
 
 function CookCard({ cardsData }) {
   const settings = {
-
     infinite: false,
     nextArrow: <Next />,
     prevArrow: <Prev />,
@@ -51,30 +50,30 @@ function CookCard({ cardsData }) {
           slidesToShow: 3,
           slidesToScroll: 3,
           infinite: true,
-          dots: true
-        }
+          dots: true,
+        },
       },
       {
-        breakpoint: 600,
+        breakpoint: 768,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
-          initialSlide: 2
-        }
+          initialSlide: 2,
+        },
       },
       {
-        breakpoint: 480,
+        breakpoint: 375,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
-    ]
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
   return (
     <Container className="my-5">
-      <div className="d-flex">
+      <div className={`d-flex ${styles.cooksnap}`}>
         <div>
           <BorderHeart />
         </div>
@@ -85,8 +84,8 @@ function CookCard({ cardsData }) {
       <div className="">
         <Slider {...settings}>
           {cardsData.map((item, index) => (
-            <div key={index}>
-              <Card style={{ width: "20.0625rem" , border:"solid red 1px" }}>
+            <div className="d-flex justify-content-center" key={index}>
+              <Card style={{ width: "19rem" }}>
                 <Card.Body>
                   <div className="d-flex gap-3">
                     <div>
@@ -147,5 +146,3 @@ function CookCard({ cardsData }) {
 }
 
 export default CookCard;
-
-

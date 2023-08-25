@@ -5,7 +5,7 @@ import styles from "./activity.module.css"
 const Activity = () => {
   return (
 <> 
-<Container className='mt-5'> 
+<Container className=' text-center mt-5'> 
 
 <div className={`${styles.container}`}> 
 <h1 className='pt-5'>Activity </h1>

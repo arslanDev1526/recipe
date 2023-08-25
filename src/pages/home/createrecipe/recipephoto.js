@@ -4,7 +4,7 @@ import styles from "./createRecipe.module.css";
 const RecipePhoto = () => {
   return (
     <>
-      <div className="my-5">
+      <div className="">
         <div className="d-flex justify-content-center flex-column align-items-center">
           <div>
             <img

@@ -9,15 +9,15 @@ const SampleCard = ({ cards }) => {
 
   return (
     <Container className={`${styles.container}`}>
-      <h4 className={`pb-2 px-4 px-sm-0`}>Recent Recipes</h4>
+      <h4 className={` px-4 px-sm-0 mx-2 mx-sm-0`}>Recent Recipes</h4>
 
-      <div className={`d-flex  flex-wrap justify-content-between align-items-center g-2`}>
+      <div className={`d-flex flex-wrap justify-content-between align-items-center`}>
         {cards.map((card, index) => (
           <>
 
-          <div className={` ${styles.wrapper} `}>
+          <div className={`${styles.wrapper}`}>
             <div
-              className={`d-flex justify-content-between mb-1 ${styles["container-header"]}`}
+              className={`d-flex justify-content-between mb-1  ${styles["container-header"]}`}
               key={index}
             >
               <div>

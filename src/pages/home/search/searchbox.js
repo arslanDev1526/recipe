@@ -5,7 +5,7 @@ import styles from "./searchbox.module.css";
 
 const SearchBox = () => {
   return (
-    <Form.Group className={`position-relative   ${styles.form}`}>
+    <Form.Group className={`position-relative ${styles.form}`}>
       <Form.Control
         type="text"
         placeholder="Type ingredients..."

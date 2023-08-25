@@ -4,7 +4,7 @@ const Categ = () => {
   return (
     <>
       <Container>
-        <h1 className="my-5"> Coming Soon Wait </h1>
+        <h1 className="my-5 text-center"> Coming Soon Wait </h1>
       </Container>
     </>
   );
