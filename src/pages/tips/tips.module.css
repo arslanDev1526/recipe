@@ -1,5 +1,10 @@
+.tips-container {
+  width: 23.3rem;
+  background-color: white;
+}
+
 .tips-input {
-  width: 39rem;
+  width: 21rem;
   background-color: rgba(248, 246, 242, 1);
   border: none;
 }
@@ -9,19 +14,36 @@
 }
 
 .tips-textarea {
-  width: 37rem;
+  width: 19rem;
   border: none;
   background-color: rgba(248, 246, 242, 1);
-  resize: vertical;
+  resize: none;
 }
 
-.tips-textarea:focus { 
-    outline: none;
+.tips-textarea:focus {
+  outline: none;
 }
 
-.upload { 
-    width:37rem ;
-    height: 500px;
-    margin-right: 30px;
-    background-color: rgba(248, 246, 242, 1);
+.upload {
+  width: 21rem;
+  height: 500px;
+  background-color: rgba(248, 246, 242, 1);
+}
+
+@media (min-width: 768px) {
+  .tips-container {
+    width: 40rem;
+  }
+
+  .tips-input {
+    width: 38rem;
+  }
+
+  .tips-textarea {
+    width: 36rem;
+  }
+
+  .upload {
+    width: 38rem;
+  }
 }

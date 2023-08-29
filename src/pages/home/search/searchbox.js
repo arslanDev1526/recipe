@@ -5,7 +5,7 @@ import styles from "./searchbox.module.css";
 
 const SearchBox = () => {
   return (
-    <Form.Group className={`position-relative  ${styles.form}`}>
+    <Form.Group className={`position-relative ${styles.form}`}>
       <Form.Control
         type="text"
         placeholder="Type ingredients..."
@@ -18,7 +18,7 @@ const SearchBox = () => {
 
       <button
         type="submit"
-        className={`position-absolute top-50 end-0 translate-middle-y p-2 rounded mx-3 ${styles["custom-btn"]}`}
+        className={`position-absolute top-50 end-0 translate-middle-y p-2 rounded mx-3 d-none d-sm-block ${styles["custom-btn"]}`}
       >
         Search
       </button>

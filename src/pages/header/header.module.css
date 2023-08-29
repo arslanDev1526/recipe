@@ -1,11 +1,19 @@
+.logo {
 
+  padding-left: 6rem;
+}
 
-.nav-img { 
-  width: 2rem;
- }
+.nav-toggle {
+  text-decoration: none;
+
+  outline: none;
+}
+
+.nav-img {
+  width: 2.5rem;
+}
 
 .icon {
-  margin-right: 0.5rem;
   color: rgba(0, 0, 0, 0.3);
   font-size: 1.3rem;
 }
@@ -15,14 +23,42 @@
   color: rgba(0, 0, 0, 0.3);
 }
 
-.active { 
-    color: orange;
+.nav-links:focus,
+.nav-links:hover,
+.nav-links.active {
+  color: orange !important;
 }
 
-.Navbar {
-  background-color: #fff ;
+.navbar {
+  background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-
-  /* border: solid red 1px; */
 }
 
+@media (min-width: 768px) {
+  .nav {
+    margin-left: 4rem;
+    width: 30rem;
+  }
+
+  .logo {
+    padding: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .nav {
+    margin-left: 10rem;
+
+    width: 40rem;
+  }
+  .logo {
+    width: 10rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .nav {
+    margin-left: 25rem;
+    width: 38rem;
+  }
+}

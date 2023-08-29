@@ -15,7 +15,7 @@ const ProfileTips = () => {
 
           <Link
             className={`py-2 px-2 rounded  ${styles["saved-link"]}`}
-            to="/profile/create/tips"
+            to="/tips"
           >
             {" "}
             Create tips{" "}

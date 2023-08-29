@@ -1,18 +1,12 @@
 .container {
   margin-top: 5rem;
-
 }
-
-.card-profile {
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 50%;
-  object-fit: cover;
+.img {
+  width: 2rem;
 }
 
 .container-header {
   width: 18rem;
-
 }
 
 .card-hearth-btn {
@@ -23,27 +17,19 @@
   background-color: rgb(236 235 233);
 }
 
-
-
-.slickPrev{ 
-  border: solid red 1px;
-  background-color: red;
-  /* display: none; */
-}
-
-.slick-prev-custom{ 
-  border: solid red 1px;
-  /* position: absolute; */
-  /* top: 50%; */
-  /* margin-top: 100px; */
-
-  position: relative;
-  top:210px;
-  right: 29px;
+.cooksnap {
+  margin-left: 1.5rem;
 
 }
 
-/* .slick-disabled {
-  display: none !important;
-} */
+@media (min-width: 1024px) {
+  .cooksnap {
+    margin-left: 0.4rem;
+  }
+}
 
+@media (min-width: 1200px) {
+  .cooksnap {
+    margin-left: 2rem;
+  }
+}

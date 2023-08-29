@@ -7,19 +7,52 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
+/* code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
+} */
 
  .slick-disabled {
   display: none !important;
 } 
 
-.slick-prev:before,
-.slick-next:before {
+.slick-next:before,
+.slick-prev:before
+ {
   color: #4a4a4a !important; 
+}
+
+.slick-prev{ 
  
+  margin-left: 40px !important;
+}
+
+.slick-next { 
+  margin-right: 40px !important;
+}
 
 
+@media (min-width: 1024px) {
+  .slick-prev{ 
+ 
+    margin-left: 20px !important;
+  }
+  
+  .slick-next { 
+    margin-right: 20px !important;
+  }
+  
+}
+
+@media (min-width: 1200px) {
+  .slick-prev{ 
+ 
+    margin-left: 20px !important;
+    background-color:red;
+  }
+  
+  .slick-next { 
+    margin-right: 20px !important;
+  }
+  
 }

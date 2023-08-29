@@ -1,38 +1,79 @@
-.profile-img {
-  width: 6rem;
-  height: 6rem;
-  border-radius: 10rem;
-}
-
-
-
-
-.tab-button  { 
-
-
+.tab-button {
   background-color: white;
   border: none;
   cursor: pointer;
-
 }
 
-.active { 
-  border-bottom:solid orange 2px ;
+.active {
+  border-bottom: solid orange 2px;
 }
 
-.tab1-input { 
+.tab2-text {
+  height: 400px;
+}
+
+.saved-link {
+  text-decoration: none;
+  background-color: #4a4a4a;
+  color: white;
+}
+
+.saved-link:hover {
+  opacity: 0.9;
+}
+
+/* tabs component styling */
+
+.tabs-container {
+  width: 23.5rem;
+}
+@media (min-width: 768px) {
+  .tabs-container {
+    width: 40rem;
+  }
+}
+
+/* profileimg component styling */
+
+.profile-container {
+  width: 23.5rem;
+  margin-top: 2.7rem;
+}
+
+.profile-img {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 10rem;
+}
+
+.btn {
+}
+
+@media (min-width: 768px) {
+  .profile-container {
+    width: 40rem;
+  }
+  .profile-img {
+    width: 5rem;
+    height: 5rem;
+  }
+}
+
+/* saved component styling */
+
+.tab1-input {
   border: none !important;
   background-color: rgba(248, 246, 242, 1);
   /* color: #f93; */
 }
 
-.tab1-input:focus { 
+.tab1-input:focus {
   /* color: orange; */
   outline: none;
   border: blue 1px solid;
 }
 
-.tab1-btn { 
+.tab1-btn {
   background-color: rgb(224, 220, 211);
   border: none;
   color: black;
@@ -40,26 +81,12 @@
   padding: 0 20px 0px 20px;
 }
 
-.tab1-btn:hover{ 
-  background-color: rgba(224, 220, 211, .7);
+.tab1-btn:hover {
+  background-color: rgba(224, 220, 211, 0.7);
 }
 
-
-.tab2-text { 
-  height: 400px;
-
-
+@media (min-width: 768px) {
+  .recipe-count {
+    width: 40rem;
+  }
 }
-
-
-
-.saved-link { 
-  text-decoration: none;
-  background-color: #4a4a4a;
-  color: white;
-}
-
-.saved-link:hover { 
-  opacity: .9;
-}
-

@@ -1,7 +1,13 @@
-.footer{ 
-    background-color: white;
+.footer {
+  background-color: white;
 }
 
-.about-links a{ 
-    color: rgb(110, 101, 101);
+.about-links a {
+  color: rgb(110, 101, 101);
+}
+
+@media (min-width: 768px) {
+  .about-links {
+    width: 50rem;
+  }
 }
