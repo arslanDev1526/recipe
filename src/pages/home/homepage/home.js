@@ -25,8 +25,6 @@ const Home = () => {
       </div>
 
       <div className="d-flex flex-column align-items-center mt-sm-5">
-
-     
         <SearchBox />
         <Link
           to="/categ"
@@ -37,19 +35,17 @@ const Home = () => {
       </div>
 
       <div className="mt-3 d-flex justify-content-center  ">
-        <div className={`border d-none d-sm-block  py-2 rounded ${styles.create}`}>
+        <div
+          className={`border d-none d-sm-block  py-2 rounded ${styles.create}`}
+        >
           <CreateRecipe />
 
-          <Link
-            to="/createRecipe"
-            className={` mx-1 ${styles["main-text"]}`}
-          >
+          <Link to="/createRecipe" className={` mx-1 ${styles["main-text"]}`}>
             Create Recipe
           </Link>
         </div>
       </div>
 
-      
       <SampleCard cards={data} />
       <CookCard cardsData={cardData} />
     </>

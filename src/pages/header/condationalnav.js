@@ -4,7 +4,7 @@ import { Dropdown } from "react-bootstrap";
 import { ThreeDots } from "../../components/index";
 import { DeleteIcon } from "../../components/index";
 
-const CondationalNav = () => {
+const CondationalNav = ({onSaveTipClicked}) => {
   const handleDeleteRecipe = () => {
     console.log("delete");
   };
@@ -24,7 +24,7 @@ const CondationalNav = () => {
 
         <div className={`d-flex align-items-center`}> 
           {" "}
-          <button className={`border-0 px-4 py-1 rounded text-white  ${styles. btn} `}> Publish </button>
+          <button className={`border-0 px-4 py-1 rounded text-white  ${styles. btn} `}  onClick={onSaveTipClicked}> Publish </button>
           <Dropdown className={`${styles.dropdown}`}>
             <Dropdown.Toggle
               className={`${styles["dropdown-toggle"]}`}

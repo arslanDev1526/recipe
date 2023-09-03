@@ -14,7 +14,7 @@ const Search = () => {
           <div className={`d-flex mt-5`}>
             <img
               className="w-25 h-50 mt-1"
-              src="https://global-web-assets.cpcdn.com/assets/logo_circle-d106f02123de882fffdd2c06593eb2fd33f0ddf20418dd75ed72225bdb0e0ff7.png "
+              src="https://global-web-assets.cpcdn.com/assets/logo_circle-d106f02123de882fffdd2c06593eb2fd33f0ddf20418dd75ed72225bdb0e0ff7.png"
             />
 
             <h1 className="my-3 mx-2"> SpiceCraft</h1>

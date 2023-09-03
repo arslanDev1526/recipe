@@ -12,7 +12,6 @@ import Profile from "./pages/profile/profile";
 import NoMatch from "./pages/extras/404";
 import Header from "./pages/header/header";
 import Styles from "./pages/app.module.css";
-import Landing from "./pages/extras/landing";
 import Footer from "./pages/footer/footer";
 import Tips from "./pages/tips/tips";
 import SignUp from "./pages/login/signup";
@@ -22,7 +21,7 @@ const App = () => {
   return (
     <div className={Styles["main-container"]}>
       <Router>
-        <Header />
+        <Header  />
 
         <Routes>
           <Route path="/" element={<SignUp />} />
