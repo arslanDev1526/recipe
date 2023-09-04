@@ -8,14 +8,24 @@ const Tips = () => {
   const navigate = useNavigate()
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const[img_url, setImg_url] = useState("");
+  const[img_url, setImg_url] = useState(null);
   const [formerror, setFormerror] = useState(null);
 
   const onTitleChange = (e) => setTitle(e.target.value);
   const onDescriptionChange = (e) => setDescription(e.target.value);
-  const onImgChange = (e) => setImg_url(e.target.value);
+  // const onImgChange = (e) => setImg_url(e.target.value);
   // const onFormErrorChanged = (e) => setFormerror(e.target.value);
 
+  const onImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImg_url(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
 
   const handleSubmit = async(e) => { 
     e.preventDefault();
@@ -82,7 +92,7 @@ const Tips = () => {
             </div>
 
             <h5 className="text-center mt-2"> Add a photo </h5>
-            <input value={img_url} onChange={onImgChange} className="opacity-0" type="file" />
+            <input value={img_url} onChange={onImageChange} className="opacity-0" type="file" />
             <p className=""> Demonstrate your tip </p>
           </div>
         </form>

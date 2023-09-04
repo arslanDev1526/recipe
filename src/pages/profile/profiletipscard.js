@@ -30,6 +30,10 @@ const ProfileTipsCard = ({tip, onDelete}) => {
 
     <h2>{tip.title}</h2>
     <p>{tip.description}</p>
+
+    <img src={tip.img_url}/>
+
+
     <img className='w-50' src='https://drinksnfoods.com/wp-content/uploads/2023/03/Joanna-Gaines-Beef-Tips-Recipe.jpg'/> 
    
     <Link to={'/' + tip.id } > 
