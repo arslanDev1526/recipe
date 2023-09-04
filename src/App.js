@@ -17,6 +17,8 @@ import Footer from "./pages/footer/footer";
 import Tips from "./pages/tips/tips";
 import SignUp from "./pages/login/signup";
 import SignIn from "./pages/login/signin";
+import ProfileTips from "./pages/profile/profiletips";
+import ProfileTipsUpdate from "./pages/profile/profiletipsupdate";
 
 const App = () => {
   return (
@@ -35,6 +37,8 @@ const App = () => {
           <Route path="/tips" element={<Tips />} />
           <Route path="/activity" element={<Activity />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/profiletips" element={<ProfileTips />} />
+          <Route path="/:profiletipsupdate" element={<ProfileTipsUpdate />} />
           <Route path="*" element={<NoMatch />} />
         </Routes>
 
