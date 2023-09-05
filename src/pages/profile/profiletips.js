@@ -2,39 +2,38 @@ import React, { useEffect, useState } from "react";
 import styles from "./profile.module.css";
 import { Link } from "react-router-dom";
 import supabase from "../../../src/config/client";
-import ProfileTipsCard from "./profiletipscard"
+import ProfileTipsCard from "./profiletipscard";
+import Loader from "../../components/loader";
 
 const ProfileTips = () => {
-  console.log(supabase);
+  // console.log(supabase);
 
   const [fetchError, setFetchError] = useState(null);
   const [tips, setTips] = useState(null);
+  const [isloading, setIsLoading] = useState(false);
 
-
-  const handleDelete = (id) => { 
-    setTips(prevTips => { 
-      return prevTips.filter(ti => ti.id !==id )
-    })
-  }
+  const handleDelete = (id) => {
+    setTips((prevTips) => {
+      return prevTips.filter((ti) => ti.id !== id);
+    });
+  };
 
   useEffect(() => {
     const fetchTips = async () => {
+      setIsLoading(true);
       const { data, error } = await supabase.from("tips").select();
-
+      setIsLoading(false);
       if (error) {
         setFetchError("could not find the tips");
         setTips(null);
-        // console.log(error);
-        console.log("Error:", error);
       }
 
       if (data) {
+      
         setTips(data);
         setFetchError(null);
-        console.log("Data:", data);
+    
       }
-
-      console.log("Fetch Tips completed");
     };
 
     fetchTips();
@@ -42,21 +41,18 @@ const ProfileTips = () => {
 
   return (
     <>
-      <div>
+      <div className="mt-5 d-flex justify-content-center align-items-center border border-primary"> {isloading ? <Loader/>:    <div>
         {fetchError && <p> {fetchError} </p>}
         {tips && (
           <div>
             {tips.map((tip) => (
-              // <div key={tip.id}>
-              //   <p>{tip.title}</p>
-              //   <p>{tip.description}</p>
-              // </div>
-
               <ProfileTipsCard key={tip.id} tip={tip} onDelete={handleDelete} />
             ))}
           </div>
         )}
-      </div>
+      </div>} </div>
+
+    
 
       <div>
         <div className={`d-flex flex-column align-items-center py-4 `}>

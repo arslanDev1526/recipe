@@ -34,7 +34,7 @@ const ProfileTipsUpdate = () => {
     }
 
     if (data) {
-      console.log(data, "updated data");
+    //   console.log(data, "updated data");
       setFormerror(null);
       navigate("/profiletips");
     }
@@ -53,7 +53,7 @@ const ProfileTipsUpdate = () => {
       if (data) {
         setTitle(data.title);
         setDescription(data.description);
-        console.log(data, "data is here ");
+        // console.log(data, "data is here ");
       }
     };
 
