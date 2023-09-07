@@ -8,4 +8,5 @@ export {Search} from './svgs/search';
 export {ThreeDots} from './svgs/threedots';
 export {Tips } from './svgs/tips';
 export {DeleteIcon} from './svgs/delete';
+export {EditIcon} from './svgs/edit';
 export {CommentSvg} from './svgs/commentsvg';

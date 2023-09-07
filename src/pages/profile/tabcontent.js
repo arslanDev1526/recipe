@@ -28,7 +28,7 @@ const TabContent = ({ activeTab }) => {
         className={`d-flex flex-column align-items-center py-4 `}
         style={{ display: activeTab === "tab4" ? "block" : "none" }}
       >
-        <ProfileTips />
+        <ProfileTips />  
       </div>
     ),
   };

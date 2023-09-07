@@ -1,40 +1,60 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import supabase from "../../config/client";
+import styles from "./profiletipscard.module.css";
+import { DeleteIcon } from "../../components/index";
+import { EditIcon } from "../../components/index";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ProfileTipsCard = ({ tip, onDelete }) => {
   const handleDelete = async () => {
+    const deletingToastId = toast.info("Deleting...", { autoClose: false,  className: "deletion-toast", });
+
     const { data, error } = await supabase
       .from("tips")
       .delete()
       .eq("id", tip.id)
       .select();
 
+    toast.dismiss(deletingToastId);
     if (error) {
-      // console.log(error)
+      console.log(error);
+
+      toast.error("Error deleting tip");
     }
 
     if (data) {
-      // console.log(data);
+      toast.success("Deleted Successfully!" , {autoClose:1000});
       onDelete(tip.id);
     }
   };
   return (
     <>
-      <div className="border border-primary my-3">
-        <h2>{tip.title}</h2>
+      <div className={`${styles.container} `}>
+        <h2 className="text-center">{tip.title}</h2>
         <p>{tip.description}</p>
 
-        {/* <img src={tip.img_url}/> */}
-        <img className="w-50" src={tip.img_url} alt="user" />
+        <div className={`${styles["img-container"]} `}>
+          {" "}
+          <img className={`${styles.img} `} src={tip.img_url} alt="user" />{" "}
+        </div>
 
-        {/* <img className='w-50' src='https://drinksnfoods.com/wp-content/uploads/2023/03/Joanna-Gaines-Beef-Tips-Recipe.jpg'/>  */}
+        <div className=" mt-3 ">
+          <Link to={"/" + tip.id}>
+            <button className={` mx-2 ${styles.btn}`}>
+              {" "}
+              <EditIcon />{" "}
+            </button>
+          </Link>
+        
+          <button className={`${styles.btn}`} onClick={handleDelete}>
+            {" "}
+            <DeleteIcon />{" "}
+          </button>
+        </div>
 
-        <Link to={"/" + tip.id}>
-          <button> Edit </button>
-        </Link>
-
-        <button onClick={handleDelete}> Delete</button>
+        <ToastContainer />
       </div>
     </>
   );

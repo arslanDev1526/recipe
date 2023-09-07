@@ -6,7 +6,7 @@ import Tabs from "./tabs";
 import TabContent from "./tabcontent";
 
 const Profile = () => {
-  const [activeTab, setActiveTab] = useState("tab1");
+  const [activeTab, setActiveTab] = useState("tab4");
 
   const handleTabClick = (tabId) => {
     setActiveTab(tabId);

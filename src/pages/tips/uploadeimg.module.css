@@ -1,0 +1,23 @@
+.del-btn { 
+    border: none;
+    background-color: orange;
+    border-radius: 1rem ;
+    width: 2rem;
+    height: 2rem;
+  }
+  
+  .del-btn:hover { 
+    cursor: pointer;
+  }
+
+  .img-card { 
+
+    margin-top: 1rem;
+   
+  }
+
+  .img { 
+    /* max-width: 100%;
+    max-height: 200px;
+    object-fit: cover; */
+  }

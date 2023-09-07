@@ -6,11 +6,9 @@ import ProfileTipsCard from "./profiletipscard";
 import Loader from "../../components/loader";
 
 const ProfileTips = () => {
-  // console.log(supabase);
-
   const [fetchError, setFetchError] = useState(null);
   const [tips, setTips] = useState(null);
-  const [isloading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleDelete = (id) => {
     setTips((prevTips) => {
@@ -29,10 +27,8 @@ const ProfileTips = () => {
       }
 
       if (data) {
-      
         setTips(data);
         setFetchError(null);
-    
       }
     };
 
@@ -41,26 +37,31 @@ const ProfileTips = () => {
 
   return (
     <>
-      <div className="mt-5 d-flex justify-content-center align-items-center border border-primary"> {isloading ? <Loader/>:    <div>
-        {fetchError && <p> {fetchError} </p>}
-        {tips && (
+      <div className=" d-flex justify-content-center flex-column align-items-center">
+        {isLoading ? (
+          <Loader />
+        ) : tips && tips.length > 0 ? (
           <div>
             {tips.map((tip) => (
               <ProfileTipsCard key={tip.id} tip={tip} onDelete={handleDelete} />
             ))}
           </div>
-        )}
-      </div>} </div>
-
-    
-
-      <div>
-        <div className={`d-flex flex-column align-items-center py-4 `}>
+        ) : (
           <div>
-            <img src="https://global-web-assets.cpcdn.com/assets/empty_states/no_tips-0c5c91733369f17179a635c3fd99f23cf410e582982af1f2e9459229cd6a26c7.svg" />
-          </div>
-          <h2 className={`py-3`}> No tips added yet </h2>
+            <div
+              className={`d-flex flex-column justify-content-center align-items-center ${styles["no-tip-section"]}`}
+            >
+              <div>
+                <img src="https://global-web-assets.cpcdn.com/assets/empty_states/no_tips-0c5c91733369f17179a635c3fd99f23cf410e582982af1f2e9459229cd6a26c7.svg" />
+              </div>
+              <h2 className={`py-3`}> No tips added yet </h2>
 
+            
+            </div>
+          </div>
+        )}
+
+        {isLoading  ? null : (
           <Link
             className={`py-2 px-2 rounded  ${styles["saved-link"]}`}
             to="/tips"
@@ -68,7 +69,10 @@ const ProfileTips = () => {
             {" "}
             Create tips{" "}
           </Link>
-        </div>
+        )}
+
+
+       
       </div>
     </>
   );

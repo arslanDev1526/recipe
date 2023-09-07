@@ -37,7 +37,7 @@ const App = () => {
           <Route path="/tips" element={<Tips />} />
           <Route path="/activity" element={<Activity />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/profiletips" element={<ProfileTips />} />
+          {/* <Route path="/profiletips" element={<ProfileTips />} /> */}
           <Route path="/:profiletipsupdate" element={<ProfileTipsUpdate />} />
           <Route path="*" element={<NoMatch />} />
         </Routes>

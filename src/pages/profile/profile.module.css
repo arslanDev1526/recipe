@@ -27,6 +27,11 @@
 .tabs-container {
   width: 23.5rem;
 }
+
+.no-tip-section  { 
+
+  height: 200px;
+}
 @media (min-width: 768px) {
   .tabs-container {
     width: 40rem;

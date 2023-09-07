@@ -7,10 +7,10 @@ import { Oval } from  'react-loader-spinner'
 const Loader = () => {
   return (
   <>
-  <div className='mt-5'> 
+
   <Oval
-  height={200}
-  width={200}
+  height={100}
+  width={100}
   color="#FFA500"
   wrapperStyle={{}}
   wrapperClass=""
@@ -21,7 +21,7 @@ const Loader = () => {
   strokeWidthSecondary={2}
 
 />
-</div>
+
   </>
   )
 }
