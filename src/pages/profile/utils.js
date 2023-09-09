@@ -26,23 +26,26 @@ export const useGetTips = () => {
         const fetchTips = async () => {
             setIsLoading(true);
             const { data, error } = await supabase.from("tips").select();
-            const urls = await getImgUrls(data)
-            console.log("URLS", urls)
-            const modifiedData = data.map((item, index) => {
-                return { ...item, path: item.img_url, img_url: urls[index]?.value?.data?.publicUrl,  }
-            })
 
-            console.log("URLS after", modifiedData)
-
-            setIsLoading(false);
             if (error) {
                 setFetchError("could not find the tips");
                 setTips(null);
+                setIsLoading(false);
+                return
             }
-
+            
             if (data) {
+                const urls = await getImgUrls(data)
+                console.log("URLS", urls)
+                const modifiedData = data.map((item, index) => {
+                    return { ...item, path: item.img_url, img_url: urls[index]?.value?.data?.publicUrl,  }
+                })
+                
+                console.log("URLS after", modifiedData)
                 setTips(modifiedData);
                 setFetchError(null);
+                setIsLoading(false);
+                return
             }
         };
 
