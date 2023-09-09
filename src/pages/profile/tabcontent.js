@@ -8,7 +8,7 @@ import ProfileTips from "./profiletips";
 const TabContent = ({ activeTab }) => {
   const tabContent = {
     tab1: (
-      <div className={` mt-3 ${styles["tab1-content"]}`}>
+      <div className={` mt-3  ${styles["tab1-content"]}`}>
         <Saved />
       </div>
     ),

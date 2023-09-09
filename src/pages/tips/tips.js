@@ -134,7 +134,7 @@ const Tips = () => {
           </div>
 
           <div
-            className={`my-2 d-flex justify-content-between flex-column align-items-center border  ${styles.upload}`}
+            className={`my-2 d-flex gap-4  flex-column align-items-center  ${styles.upload}`}
           >
             {!previewImage && (
               <div
@@ -158,7 +158,7 @@ const Tips = () => {
               <input
                 onClick={handleClick}
                 onChange={onImageChange}
-                className=" border w-75"
+                className="border w-75"
                 type="file"
               />{" "}
             </div>
