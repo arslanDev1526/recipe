@@ -2,8 +2,6 @@ import React from "react";
 import { useParams, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import styles from "../tips/tips.module.css";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { useTipsContext } from "../../contexts";
 
 const ProfileTipsUpdate = () => {
@@ -88,7 +86,6 @@ const ProfileTipsUpdate = () => {
           {/* <button> {isLoading ? <> Updating</> : <> Update </>}</button> */}
         </form>
       </div>
-      <ToastContainer />
     </>
   );
 };

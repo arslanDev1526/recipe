@@ -1,10 +1,8 @@
-import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Home from "./pages/home/homepage/home";
 import Categ from "./pages/home/categ/categ";
 import CreateRecipe from "./pages/home/createrecipe/createRecipe";
-
 import Search from "./pages/search/search";
 import Create from "./pages/create/create";
 import Activity from "./pages/activity/activity";
@@ -23,9 +21,7 @@ import { TipsProvider } from "./contexts";
 
 
 const App = () => {
-
   return (
-
     <div className={Styles["main-container"]}>
       <Router>
         <TipsProvider>

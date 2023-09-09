@@ -1,7 +1,5 @@
 import React from "react";
 import styles from "./tips.module.css";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import UpLoadedImg from "./uploadedimg";
 import { useTipsContext } from "../../contexts";
 
@@ -111,7 +109,6 @@ const Tips = () => {
           <button onClick={handleDeleteAll}> Delete all </button> */}
         </form>
       </div>
-      <ToastContainer />
     </>
   );
 };
