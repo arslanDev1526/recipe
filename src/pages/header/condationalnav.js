@@ -28,7 +28,7 @@ const CondationalNav = () => {
         <div className={`d-flex align-items-center`}> 
           {" "}
           <button disabled={isSubmitting} onClick={handleSubmit} className={`border-0 px-4 py-1 rounded text-white  ${styles. btn} `}> 
-          { isSubmitting ? "Publish": "Publishing" }
+          { isSubmitting ? "Publishing":"Publish" }
           </button>
           <Dropdown className={`${styles.dropdown}`}>
             <Dropdown.Toggle
