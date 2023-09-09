@@ -1,7 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./tips.module.css";
-import { useNavigate } from "react-router-dom";
-import supabase from "../../config/client";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import UpLoadedImg from "./uploadedimg";
@@ -10,7 +8,6 @@ import { useTipsContext } from "../../contexts";
 
 
 const Tips = () => {
-  const navigate = useNavigate();
   const {
     isSubmitting,
     isUploading,

@@ -4,6 +4,32 @@ import { useNavigate } from "react-router-dom";
 import { useSelectImage } from "../utils/selectImage";
 import { toast } from "react-toastify";
 
+// .from("tips")
+// .update({ title, description, img_url })
+// .eq("id", id)
+// .select();
+
+
+// const { data, error } = await supabase
+//   .from('countries')
+//   .upsert({ id: 1, name: 'Albania' })
+//   .select()
+
+
+const uploadImage = async (image) => {
+    if (!image) return { file: null, er: null };
+
+    const { data: file, error: er } = await supabase.storage
+        .from("tips")
+        .upload(`public/${Date.now()}`, image, {
+            cacheControl: "3600",
+            upsert: true,
+            allowedMimeTypes: ["image/*"],
+        });
+
+    return { file, er }
+}
+
 const TipContext = createContext();
 
 export function useTipsContext() {
@@ -11,15 +37,26 @@ export function useTipsContext() {
 }
 
 export function TipsProvider({ children }) {
-    const [formData, setFormData] = useState({ title: "", description: "", });
+    const navigate = useNavigate();
+
+    const [formData, setFormData] = useState({ id: null, title: "", description: "", });
     const [formerror, setFormerror] = useState(null);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isUploading, setIsUploading] = useState(false);
 
+    const {
+        image,
+        setImage,
+        previewImageUrl,
+        setPreviewImageUrl,
+        clearImage,
+    } = useSelectImage()
 
-    const navigate = useNavigate();
-    const { image, previewImageUrl, setPreviewImage, clearImage } = useSelectImage()
 
+    const loadContextData = ({ id, title, description, previewImageUrl }) => {
+        setFormData({ id, title, description })
+        setPreviewImageUrl(previewImageUrl)
+    }
 
     const reset = () => {
         setFormerror(null);
@@ -36,43 +73,46 @@ export function TipsProvider({ children }) {
     const onImageChange = async (e) => {
         e.preventDefault()
         const file = e.target.files[0];
-        setPreviewImage(file)
+        setImage(file)
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         setIsUploading(true);
-        const { data: file, error: er } = await supabase.storage
-            .from("tips")
-            .upload(`public/${Date.now()}`, image, {
-                cacheControl: "3600",
-                upsert: true,
-                allowedMimeTypes: ["image/*"],
-            });
+        const { file, er } = await uploadImage(image)
+        setIsUploading(false);
 
-        console.log("create new ", file);
-        console.log("create img error ", er);
-        if (file) {
-            // setFormData({ ...formData, img_url: file.path });
-            setIsUploading(false);
+        const { id, title, description } = formData
+        const img_url = (image) ? file.path : null
+
+        if (!title) {
+            setFormerror("Title is required");
+            return;
         }
 
-        const img_url = file.path
-        console.log("berfore validation ", file);
-        const { title, description } = formData
-        if (!title || !description || !img_url) {
-            console.log("berfore validation ", { file, formData });
+        if (!description) {
+            setFormerror("Description is rquired");
+            return;
+        }
 
-            setFormerror(" *Fill All Fields");
+        if (!(img_url || previewImageUrl)) {
+            setFormerror("Image is required");
             return;
         }
 
         setIsSubmitting(true);
+
         const { data, error } = await supabase
-            .from("tips")
-            .insert([{ title, description, img_url }])
-            .select();
+            .from('tips')
+            .upsert({
+                ...(id && { id }),
+                ...(title && { title }),
+                ...(description && { description }),
+                ...(img_url && { img_url }),
+            })
+            .select()
+
 
         if (error) {
             setIsSubmitting(false);
@@ -82,7 +122,6 @@ export function TipsProvider({ children }) {
             });
             setFormerror("Fill All Fields");
         }
-
 
 
         if (er) {
@@ -112,19 +151,22 @@ export function TipsProvider({ children }) {
                     render() {
                         return "Publishing..."
                     },
-                    icon: false,
+                    icon: true,
                 },
                 success: {
                     render({ data }) {
 
                         return "Published successfully"
                     },
+                    icon: true,
+
                     // icon: "🟢",
                 },
                 error: {
                     render({ data }) {
                         return "Failed to publish"
-                    }
+                    },
+                    icon: true,
                 }
             }
         )
@@ -146,6 +188,7 @@ export function TipsProvider({ children }) {
                 formerror,
                 handleChange,
                 onImageChange,
+                loadContextData,
                 handleSubmit: WraperHandler,
             }}>
             {children}

@@ -19,7 +19,7 @@ import SignUp from "./pages/login/signup";
 import SignIn from "./pages/login/signin";
 import ProfileTips from "./pages/profile/profiletips";
 import ProfileTipsUpdate from "./pages/profile/profiletipsupdate";
-import { TipsProvider, useTipsContext } from "./contexts/tipsContext";
+import { TipsProvider } from "./contexts";
 
 
 const App = () => {
