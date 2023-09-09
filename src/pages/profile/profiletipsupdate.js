@@ -7,13 +7,6 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { getImgUrl } from "./utils";
 
-const getNameFromPath = (path) => {
-  const name = path.split("/").filter(item => !!item)[1]
-  return name
-  
-}
-
-
 const ProfileTipsUpdate = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -72,7 +65,6 @@ const ProfileTipsUpdate = () => {
       .select();
 
     if (error) {
-
       console.log(error);
       toast.error("*Update  Failed !", {
         autoClose: 1000,
@@ -83,20 +75,16 @@ const ProfileTipsUpdate = () => {
     }
 
     if (data) {
-
       setIsLoading(false);
       toast.success("Success Notification!", {
         autoClose: 1000,
       });
 
       setFormError(null);
-     
 
       setTimeout(() => {
         navigate("/profile");
       }, 1000);
-
-     
     }
   };
 
@@ -114,8 +102,6 @@ const ProfileTipsUpdate = () => {
         console.log(data, "update data fetch");
         setTitle(data.title);
         setDescription(data.description);
-
-      
       }
     };
 
@@ -152,12 +138,10 @@ const ProfileTipsUpdate = () => {
             className={`my-2 py-2 d-flex justify-content-between flex-column align-items-center ${styles.upload}`}
           >
             <div className={`${styles["update-img-contain"]}`}>
-             
-              <img className={`${styles["update-img"]}`} src={previewImage} />
+              <img className={`${styles["update-img"]}`} src={img_url} />
             </div>
 
             <div className="d-flex justify-content-center">
-           
               <input
                 onChange={onImageChange}
                 className=" border w-75"
@@ -169,8 +153,7 @@ const ProfileTipsUpdate = () => {
           </div>
 
           <button> {isLoading ? <> Updating</> : <> Update </>}</button>
-        
-      </form>
+        </form>
       </div>
       <ToastContainer />
     </>

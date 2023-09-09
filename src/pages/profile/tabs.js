@@ -13,7 +13,7 @@ const Tabs = ({ activeTab, handleTabClick }) => {
     <>
       <div className={`bg-white ${styles["tabs-container"]}`}>
         <div className={` ${styles["custom-tabs"]}`}>
-          <div className={`mx-2 mx-sm-0 col-sm-7 d-flex justify-content-between`}>
+          <div className={`mx-3  mx-sm-3 col-sm-7 d-flex justify-content-between`}>
             {tabs.map((tab) => (
               <button
                 key={tab.id}

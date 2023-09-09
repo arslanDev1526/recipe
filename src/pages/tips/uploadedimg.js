@@ -3,29 +3,29 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Card from "react-bootstrap/Card";
+// import Card from "react-bootstrap/Card";
 import { DeleteIcon } from "../../components/index";
 import styles from "./uploadeimg.module.css";
 
-const UpLoadedImg = ({ img_url,  onDelete }) => {
+const UpLoadedImg = ({ img_url, onDelete }) => {
   const handleDelete = () => {
-    onDelete()
+    onDelete();
   };
 
   return (
     <Container>
       <Row>
-        <Col   md={12} lg={12}>
-          <Card className={`${styles["img-card"]} `} >
-            <Card.Img className={`${styles.img} `}  style={{ maxHeight: "200px", maxWidth: "100%" }} variant="top" src={img_url} alt="i am here" />
-            <Card.Body>
-              <button className={styles["del-btn"]} onClick={handleDelete}>
-              <DeleteIcon/>
-              </button>
-            </Card.Body>
-          </Card>
+        <Col md={12} lg={12}>
+          <div className={`${styles["img-card"]}`}>
+            <img className={` mt-3 ${styles.img}`} src={img_url} />
 
-      
+            <button className={styles["del-btn"]} onClick={handleDelete}>
+              {" "}
+              <DeleteIcon />{" "}
+            </button>
+          </div>
+
+        
         </Col>
       </Row>
     </Container>
