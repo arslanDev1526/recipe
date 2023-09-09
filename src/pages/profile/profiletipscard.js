@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import supabase from "../../config/client";
 import styles from "./profiletipscard.module.css";
@@ -7,9 +7,36 @@ import { EditIcon } from "../../components/index";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+
+
 const ProfileTipsCard = ({ tip, onDelete }) => {
+  const [url, setUrl] = useState(null);
+
+  useEffect(() => {
+    const getImgUrl =  async ({ bucketName, path }) => {
+      const { data } = await supabase.storage
+        .from(bucketName)
+        .getPublicUrl(path);
+
+      const { publicUrl: url } = data;
+
+      setUrl(url);
+      console.log(url, "url");
+// console.log(data, "data listing ");
+      return data;
+    };
+
+    getImgUrl({
+      bucketName: "tips",
+      path: tip.img_url,
+    });
+  }, []);
+
   const handleDelete = async () => {
-    const deletingToastId = toast.info("Deleting...", { autoClose: false,  className: "deletion-toast", });
+    const deletingToastId = toast.info("Deleting...", {
+      autoClose: false,
+      className: "deletion-toast",
+    });
 
     const { data, error } = await supabase
       .from("tips")
@@ -25,7 +52,8 @@ const ProfileTipsCard = ({ tip, onDelete }) => {
     }
 
     if (data) {
-      toast.success("Deleted Successfully!" , {autoClose:1000});
+      console.log(data, "listing data");
+      toast.success("Deleted Successfully!", { autoClose: 1000 });
       onDelete(tip.id);
     }
   };
@@ -36,8 +64,7 @@ const ProfileTipsCard = ({ tip, onDelete }) => {
         <p>{tip.description}</p>
 
         <div className={`${styles["img-container"]} `}>
-          {" "}
-          <img className={`${styles.img} `} src={tip.img_url} alt="user" />{" "}
+          {url && <img className={`${styles.img} `} src={url} alt="user" />}
         </div>
 
         <div className=" mt-3 ">
@@ -47,7 +74,7 @@ const ProfileTipsCard = ({ tip, onDelete }) => {
               <EditIcon />{" "}
             </button>
           </Link>
-        
+
           <button className={`${styles.btn}`} onClick={handleDelete}>
             {" "}
             <DeleteIcon />{" "}

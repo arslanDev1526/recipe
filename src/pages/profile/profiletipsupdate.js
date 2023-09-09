@@ -35,7 +35,7 @@ const ProfileTipsUpdate = () => {
       .from("data_tips")
       .update(`${date}.jpg`, file, {
         cacheControl: "3600",
-        upsert: false,
+        upsert: true,
       });
     console.log("success_img", data);
     console.log("error_img", error);
@@ -103,7 +103,8 @@ const ProfileTipsUpdate = () => {
         console.log(data, "update data fetch");
         setTitle(data.title);
         setDescription(data.description);
-        setImg_url(data.img_url);
+
+      
       }
     };
 

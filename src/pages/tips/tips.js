@@ -5,6 +5,7 @@ import supabase from "../../config/client";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import UpLoadedImg from "./uploadedimg";
+import { useAppContext } from "../../context/appcontext";
 
 const Tips = () => {
   const navigate = useNavigate();
@@ -14,23 +15,19 @@ const Tips = () => {
   const [formerror, setFormerror] = useState(null);
   const [previewImage, setPreviewImage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [isimgLoading, setImgIsLoading] = useState(false);
 
   const onTitleChange = (e) => setTitle(e.target.value);
   const onDescriptionChange = (e) => setDescription(e.target.value);
 
-  const handleDeleteAll = () => { 
-      
-    setTitle("")
-    setDescription("")
-    setImg_url("")
+  const handleDeleteAll = () => {
+    setTitle("");
+    setDescription("");
+    setImg_url("");
     // setFormerror(null)
-    setPreviewImage(null)
-    setIsLoading(false)
-
-
-
-
-  }
+    setPreviewImage(null);
+    setIsLoading(false);
+  };
 
   const handleClick = (event) => {
     const { target = {} } = event || {};
@@ -45,21 +42,25 @@ const Tips = () => {
       const reader = new FileReader();
       reader.onloadend = () => {
         setPreviewImage(reader.result);
-        setImg_url(reader.result);
       };
       reader.readAsDataURL(file);
     }
+    console.log(file, "file here");
+
+    setImgIsLoading(true);
 
     const { data, error } = await supabase.storage
-      .from("data_tips")
-      .upload(`public/${date}.jpg`, file, {
+      .from("tips")
+      .upload(`public/${date}`, file, {
         cacheControl: "3600",
-        upsert: false,
+        upsert: true,
+        allowedMimeTypes: ["image/*"],
       });
-    console.log("success_img", data);
-    console.log("error_img", error);
+    console.log("create new ", data);
+    console.log("create img error ", error);
     if (data) {
       setImg_url(data.path);
+      setImgIsLoading(false);
     }
   };
 
@@ -108,7 +109,7 @@ const Tips = () => {
   return (
     <>
       <div className="d-flex flex-column align-items-center py-4 bg-white ">
-      {formerror && <h3 className="text-danger ">{formerror}</h3>}
+        {formerror && <h3 className="text-danger ">{formerror}</h3>}
         <form
           onSubmit={handleSubmit}
           className={` d-flex flex-column align-items-center bg-white ${styles["tips-container"]} `}
@@ -131,7 +132,6 @@ const Tips = () => {
               placeholder="To dice an onion, use a chef knife to cut the onion in half from the stem tip to the bottom root."
             />
           </div>
-         
 
           <div
             className={`my-2 d-flex justify-content-between flex-column align-items-center border  ${styles.upload}`}
@@ -165,11 +165,12 @@ const Tips = () => {
 
             <p className=""> Demonstrate your tip </p>
           </div>
-          <button> {isLoading ? <> creating</> : <>Submit</>}</button>
-          <button onClick={handleDeleteAll} > Delete all  </button>
+          <button disabled={isimgLoading}>
+            {" "}
+            {isLoading ? <> creating</> : <>Submit</>}
+          </button>
+          <button onClick={handleDeleteAll}> Delete all </button>
         </form>
-
-      
       </div>
       <ToastContainer />
     </>

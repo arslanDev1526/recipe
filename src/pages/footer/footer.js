@@ -10,6 +10,8 @@ const Footer = () => {
 
   if (ignoreRoutes.includes(window.location.pathname)) return null;
 
+  if (/tips\/\d+/.test(location.pathname)) return null;
+
   return (
     <>
       <div className={`${styles.footer}`}>

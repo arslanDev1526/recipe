@@ -7,9 +7,8 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import LinkItem from "./linkitem";
-import CondationalNav from "./condationalnav"
-import navItems from "./navitem"
-
+import CondationalNav from "./condationalnav";
+import navItems from "./navitem";
 
 function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -23,7 +22,9 @@ function Header() {
   if (ignoreRoutes.includes(location.pathname)) return null;
 
   const secondNav = ["/tips", "/createRecipe"];
-  if (secondNav.includes(location.pathname)) return <CondationalNav/>;
+  if (secondNav.includes(location.pathname)) return <CondationalNav />;
+
+  if (/tips\/\d+/.test(location.pathname)) return <CondationalNav />;
 
   return (
     <>
