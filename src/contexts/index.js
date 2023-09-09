@@ -1,2 +1,1 @@
-import { TipsProvider, useTipsContext } from "./tipsContext";
-
+export { TipsProvider, useTipsContext } from "./tipsContext";

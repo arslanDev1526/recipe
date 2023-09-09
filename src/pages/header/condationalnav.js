@@ -3,7 +3,7 @@ import styles from "./condationalnav.module.css";
 import { Dropdown } from "react-bootstrap";
 import { ThreeDots } from "../../components/index";
 import { DeleteIcon } from "../../components/index";
-import { useTipsContext } from "../../contexts/tipsContext";
+import { useTipsContext } from "../../contexts";
 
 const CondationalNav = () => {
   const { handleSubmit, isSubmitting } = useTipsContext()

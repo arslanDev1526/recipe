@@ -5,9 +5,7 @@ import supabase from "../../config/client";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import UpLoadedImg from "./uploadedimg";
-import { useTipsContext } from "../../contexts/tipsContext";
-
-
+import { useTipsContext } from "../../contexts";
 
 
 
