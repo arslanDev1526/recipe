@@ -5,9 +5,9 @@ import supabase from "../../config/client";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import UpLoadedImg from "./uploadedimg";
-import { useAppContext } from "../../context/appcontext";
 
-const Tips = () => {
+
+const Tips = ({handleSubmit:submit}) => {
   const navigate = useNavigate();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -24,7 +24,6 @@ const Tips = () => {
     setTitle("");
     setDescription("");
     setImg_url("");
-    // setFormerror(null)
     setPreviewImage(null);
     setIsLoading(false);
   };

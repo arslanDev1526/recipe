@@ -102,6 +102,7 @@ const ProfileTipsUpdate = () => {
         console.log(data, "update data fetch");
         setTitle(data.title);
         setDescription(data.description);
+        setImg_url(data.img_url);
       }
     };
 
@@ -135,10 +136,10 @@ const ProfileTipsUpdate = () => {
           </div>
 
           <div
-            className={`my-2 py-2 d-flex justify-content-between flex-column align-items-center ${styles.upload}`}
+            className={`my-2 py-2 d-flex gap-5 flex-column align-items-center border border-primary ${styles.upload}`}
           >
             <div className={`${styles["update-img-contain"]}`}>
-              <img className={`${styles["update-img"]}`} src={img_url} />
+              <img className={`${styles["update-img"]}`} src={previewImage} />
             </div>
 
             <div className="d-flex justify-content-center">

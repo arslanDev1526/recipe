@@ -21,10 +21,17 @@ import ProfileTips from "./pages/profile/profiletips";
 import ProfileTipsUpdate from "./pages/profile/profiletipsupdate";
 
 const App = () => {
+
+
+  const handleSubmit = () => {
+
+console.log("handleSubmit");
+  };
+
   return (
     <div className={Styles["main-container"]}>
       <Router>
-        <Header />
+        <Header handleSubmit={handleSubmit} />
 
         <Routes>
           <Route path="/" element={<SignUp />} />
@@ -34,7 +41,7 @@ const App = () => {
           <Route path="/createRecipe" element={<CreateRecipe />} />
           <Route path="/search" element={<Search />} />
           <Route path="/create" element={<Create />} />
-          <Route path="/tips" element={<Tips />} />
+          <Route path="/tips" element={<Tips handleSubmit={handleSubmit} />} />
           <Route path="/activity" element={<Activity />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="tips/:id" element={<ProfileTipsUpdate />} />

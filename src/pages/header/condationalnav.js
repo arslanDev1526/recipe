@@ -4,15 +4,19 @@ import { Dropdown } from "react-bootstrap";
 import { ThreeDots } from "../../components/index";
 import { DeleteIcon } from "../../components/index";
 
-const CondationalNav = () => {
+const CondationalNav = ({handleSubmit}) => {
   const handleDeleteRecipe = () => {
     console.log("delete");
   };
 
+
+
   return (
     <>
-      <div className={` px-3 py-2 d-flex justify-content-between border-bottom  ${styles.container}`}>
-        <div  className={`d-flex gap-2 align-items-center `}>
+      <div
+        className={` px-3 py-2 d-flex justify-content-between border-bottom  ${styles.container}`}
+      >
+        <div className={`d-flex gap-2 align-items-center `}>
           {" "}
           <img
             className={styles["nav-img"]}
@@ -22,9 +26,15 @@ const CondationalNav = () => {
           <h5 className="mt-2"> SpiceCraft </h5>{" "}
         </div>
 
-        <div className={`d-flex align-items-center`}> 
+        <div className={`d-flex align-items-center`}>
           {" "}
-          <button className={`border-0 px-4 py-1 rounded text-white  ${styles. btn} `}> Publish </button>
+          <button
+            onClick={handleSubmit}
+            className={`border-0 px-4 py-1 rounded text-white  ${styles.btn} `}
+          >
+            {" "}
+            Publish{" "}
+          </button>
           <Dropdown className={`${styles.dropdown}`}>
             <Dropdown.Toggle
               className={`${styles["dropdown-toggle"]}`}
@@ -35,7 +45,11 @@ const CondationalNav = () => {
             </Dropdown.Toggle>
             <Dropdown.Menu>
               <Dropdown.Item onClick={() => handleDeleteRecipe()}>
-                <span className="mx-1" >  <DeleteIcon/> </span> Delete 
+                <span className="mx-1">
+                  {" "}
+                  <DeleteIcon />{" "}
+                </span>{" "}
+                Delete
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>{" "}
