@@ -1,44 +1,55 @@
 import React from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import supabase from "../../config/client";
 import styles from "../tips/tips.module.css";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { getImgUrl } from "./utils";
 
+const getNameFromPath = (path) => {
+  const name = path.split("/").filter(item => !!item)[1]
+  return name
+  
+}
 
 
 const ProfileTipsUpdate = () => {
+  const { id } = useParams();
   const navigate = useNavigate();
-  const { profiletipsupdate } = useParams();
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
+  const location = useLocation();
+  const tip = location.state
+
+  const [title, setTitle] = useState(tip.title || "");
+  const [description, setDescription] = useState(tip.description || "");
+  const [previewImage, setPreviewImage] = useState(tip.img_url || "");
   const [img_url, setImg_url] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const [formError, setFormError] = useState(null);
+
 
   const onTitleChange = (e) => setTitle(e.target.value);
   const onDescriptionChange = (e) => setDescription(e.target.value);
 
   const onImageChange = async (e) => {
-    const date = Date.now();
+
     const file = e.target.files[0];
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
-        setImg_url(reader.result);
+        setPreviewImage(reader.result);
       };
       reader.readAsDataURL(file);
     }
 
+    const date = Date.now();
     const { data, error } = await supabase.storage
-      .from("data_tips")
-      .update(`${date}.jpg`, file, {
+      .from("tips")
+      .upload(`public/${date}`, file, {
         cacheControl: "3600",
-        upsert: true,
       });
-    console.log("success_img", data);
-    console.log("error_img", error);
+    console.log("update success_img", data);
+    console.log("update error_img", error);
     if (data) {
       setImg_url(data.path);
     }
@@ -57,7 +68,7 @@ const ProfileTipsUpdate = () => {
     const { data, error } = await supabase
       .from("tips")
       .update({ title, description, img_url })
-      .eq("id", profiletipsupdate)
+      .eq("id", id)
       .select();
 
     if (error) {
@@ -94,7 +105,7 @@ const ProfileTipsUpdate = () => {
       const { data, error } = await supabase
         .from("tips")
         .select()
-        .eq("id", profiletipsupdate)
+        .eq("id", id)
         .single();
       if (error) {
         navigate("/profiletips", { replace: true });
@@ -109,7 +120,7 @@ const ProfileTipsUpdate = () => {
     };
 
     fetchtips();
-  }, [profiletipsupdate, navigate]);
+  }, [id, navigate]);
   return (
     <>
       <div className="d-flex flex-column align-items-center py-4 bg-white mt-5 ">
@@ -142,7 +153,7 @@ const ProfileTipsUpdate = () => {
           >
             <div className={`${styles["update-img-contain"]}`}>
              
-              <img className={`${styles["update-img"]}`} src={img_url} />
+              <img className={`${styles["update-img"]}`} src={previewImage} />
             </div>
 
             <div className="d-flex justify-content-center">

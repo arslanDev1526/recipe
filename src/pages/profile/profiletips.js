@@ -1,39 +1,49 @@
 import React, { useEffect, useState } from "react";
 import styles from "./profile.module.css";
 import { Link } from "react-router-dom";
-import supabase from "../../../src/config/client";
+// import supabase from "../../../src/config/client";
 import ProfileTipsCard from "./profiletipscard";
 import Loader from "../../components/loader";
+import { useGetTips } from "./utils";
+
 
 const ProfileTips = () => {
-  const [fetchError, setFetchError] = useState(null);
-  const [tips, setTips] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
-
+  const { tips, setTips, isLoading, fetchError } = useGetTips()
   const handleDelete = (id) => {
     setTips((prevTips) => {
       return prevTips.filter((ti) => ti.id !== id);
     });
   };
 
-  useEffect(() => {
-    const fetchTips = async () => {
-      setIsLoading(true);
-      const { data, error } = await supabase.from("tips").select();
-      setIsLoading(false);
-      if (error) {
-        setFetchError("could not find the tips");
-        setTips(null);
-      }
+  // const [fetchError, setFetchError] = useState(null);
+  // const [tips, setTips] = useState(null);
+  // const [isLoading, setIsLoading] = useState(false);
 
-      if (data) {
-        setTips(data);
-        setFetchError(null);
-      }
-    };
 
-    fetchTips();
-  }, []);
+
+  // useEffect(() => {
+  //   const fetchTips = async () => {
+  //     setIsLoading(true);
+  //     const { data, error } = await supabase.from("tips").select();
+  //     const urls = await getImgUrls(data)
+  //     console.log("URLS", urls)
+  //     data.forEach((item, index) => item.img_url = urls[index].value.data.publicUrl)
+  //     console.log("URLS after", data)
+
+  //     setIsLoading(false);
+  //     if (error) {
+  //       setFetchError("could not find the tips");
+  //       setTips(null);
+  //     }
+
+  //     if (data) {
+  //       setTips(data);
+  //       setFetchError(null);
+  //     }
+  //   };
+
+  //   fetchTips();
+  // }, []);
 
   return (
     <>

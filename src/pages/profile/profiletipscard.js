@@ -7,29 +7,31 @@ import { EditIcon } from "../../components/index";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+// const getImgUrl =  async ({ bucketName, path }) => {
+//   const { data } = await supabase.storage
+//     .from(bucketName)
+//     .getPublicUrl(path);
 
+//   const { url } = data;
+//   return url;
+// };
 
 const ProfileTipsCard = ({ tip, onDelete }) => {
-  const [url, setUrl] = useState(null);
+  // const [url, setUrl] = useState(null);
+  // const url = getImgUrl({
+  //   bucketName: "tips",
+  //   path: tip.img_url,
+  // });
+
+  // console.log("getImgUrl", url)
 
   useEffect(() => {
-    const getImgUrl =  async ({ bucketName, path }) => {
-      const { data } = await supabase.storage
-        .from(bucketName)
-        .getPublicUrl(path);
 
-      const { publicUrl: url } = data;
 
-      setUrl(url);
-      console.log(url, "url");
-// console.log(data, "data listing ");
-      return data;
-    };
-
-    getImgUrl({
-      bucketName: "tips",
-      path: tip.img_url,
-    });
+    // getImgUrl({
+    //   bucketName: "tips",
+    //   path: tip.img_url,
+    // });
   }, []);
 
   const handleDelete = async () => {
@@ -64,11 +66,11 @@ const ProfileTipsCard = ({ tip, onDelete }) => {
         <p>{tip.description}</p>
 
         <div className={`${styles["img-container"]} `}>
-          {url && <img className={`${styles.img} `} src={url} alt="user" />}
+          <img className={`${styles.img} `} src={tip.img_url} alt="user" />
         </div>
 
         <div className=" mt-3 ">
-          <Link to={"/" + tip.id}>
+          <Link to={"/tips/" + tip.id} state={tip}>
             <button className={` mx-2 ${styles.btn}`}>
               {" "}
               <EditIcon />{" "}
