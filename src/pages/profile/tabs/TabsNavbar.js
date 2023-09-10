@@ -12,8 +12,9 @@ export const TabsNavbar = ({ activeTab, handleTabClick, children }) => {
             {tabs.map((tab) => (
               <button
                 key={tab}
-                className={` py-3  ${styles["tab-button"]} ${activeTab === tab ? styles.active : ""
+                className={`py-3 ${styles["tab-button"]} ${activeTab === tab ? styles.active : ""
                   }`}
+                  
                 onClick={() => handleTabClick(tab)}
               >
                 {tab}

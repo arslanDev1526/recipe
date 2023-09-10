@@ -3,7 +3,7 @@ import { TabsNavbar } from "./TabsNavbar";
 import { TabContent, tabs } from "./tabcontent";
 
 export const Tabs = () => {
-  const [activeTab, setActiveTab] = useState(tabs[0]);
+  const [activeTab, setActiveTab] = useState(tabs[3]);
 
   const handleTabClick = (tabId) => {
     setActiveTab(tabId);
