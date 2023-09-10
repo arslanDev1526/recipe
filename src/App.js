@@ -21,6 +21,7 @@ import { TipsProvider } from "./contexts";
 
 
 const App = () => {
+
   return (
     <div className={Styles["main-container"]}>
       <Router>
