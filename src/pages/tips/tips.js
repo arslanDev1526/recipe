@@ -1,109 +1,39 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./tips.module.css";
-import { useNavigate } from "react-router-dom";
-import supabase from "../../config/client";
-import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import UpLoadedImg from "./uploadedimg";
+import { useTipsContext } from "../../contexts";
 
 
-const Tips = ({handleSubmit:submit}) => {
-  const navigate = useNavigate();
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [img_url, setImg_url] = useState("");
-  const [formerror, setFormerror] = useState(null);
-  const [previewImage, setPreviewImage] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
-  const [isimgLoading, setImgIsLoading] = useState(false);
+const Tips = ({handleSubmit}) => {
 
-  const onTitleChange = (e) => setTitle(e.target.value);
-  const onDescriptionChange = (e) => setDescription(e.target.value);
+  const {
+    isSubmitting,
+    isUploading,
+    previewImageUrl,
+    formData,
+    formerror,
+    handleChange,
+    onImageChange,
+    handleSubmit,
+  } = useTipsContext()
+
+  const { title, description } = formData
 
   const handleDeleteAll = () => {
-    setTitle("");
-    setDescription("");
-    setImg_url("");
-    setPreviewImage(null);
-    setIsLoading(false);
   };
 
   const handleClick = (event) => {
-    const { target = {} } = event || {};
-    target.value = "";
+    // const { target = {} } = event || {};
+    // target.value = "";
   };
 
-  const onImageChange = async (e) => {
-    const date = Date.now();
-
-    const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setPreviewImage(reader.result);
-      };
-      reader.readAsDataURL(file);
-    }
-    console.log(file, "file here");
-
-    setImgIsLoading(true);
-
-    const { data, error } = await supabase.storage
-      .from("tips")
-      .upload(`public/${date}`, file, {
-        cacheControl: "3600",
-        upsert: true,
-        allowedMimeTypes: ["image/*"],
-      });
-    console.log("create new ", data);
-    console.log("create img error ", error);
-    if (data) {
-      setImg_url(data.path);
-      setImgIsLoading(false);
-    }
-  };
 
   const handleImgDelete = () => {
-    setPreviewImage(null);
-    setFormerror(null);
+    // setPreviewImage(null);
+    // setFormerror(null);
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    if (!title || !description || !img_url) {
-      setFormerror(" *Fill All Fields");
-
-      return;
-    }
-    setIsLoading(true);
-
-    const { data, error } = await supabase
-      .from("tips")
-      .insert([{ title, description, img_url }])
-      .select();
-
-    if (error) {
-      console.log(error);
-      toast.error("*Failed Notification!", {
-        autoClose: 1000,
-      });
-      setFormerror("Fill All Fields");
-    }
-
-    if (data) {
-      setIsLoading(false);
-      toast.success("Success Notification!", {
-        autoClose: 1000,
-      });
-      console.log(data, "postData");
-      setFormerror(null);
-
-      setTimeout(() => {
-        navigate("/profile");
-      }, 1000);
-    }
-  };
 
   return (
     <>
@@ -114,8 +44,9 @@ const Tips = ({handleSubmit:submit}) => {
           className={` d-flex flex-column align-items-center bg-white ${styles["tips-container"]} `}
         >
           <input
+          name="title"
             value={title}
-            onChange={onTitleChange}
+            onChange={handleChange}
             className={`my-2  p-2 fs-4 ${styles["tips-input"]}`}
             type="text"
             placeholder="Title:How to dice an onion"
@@ -124,8 +55,9 @@ const Tips = ({handleSubmit:submit}) => {
           <div className=" d-flex gap-2 align-items-center">
             <textarea
               id="fileInput"
+              name="description"
               value={description}
-              onChange={onDescriptionChange}
+              onChange={handleChange}
               rows={5}
               className={`p-2 fs-5 ${styles["tips-textarea"]}`}
               placeholder="To dice an onion, use a chef knife to cut the onion in half from the stem tip to the bottom root."
@@ -135,7 +67,7 @@ const Tips = ({handleSubmit:submit}) => {
           <div
             className={`my-2 d-flex gap-4  flex-column align-items-center  ${styles.upload}`}
           >
-            {!previewImage && (
+            {!previewImageUrl && (
               <div
                 className={`d-flex justify-content-center flex-column  ${styles["upload-img"]}`}
               >
@@ -148,8 +80,8 @@ const Tips = ({handleSubmit:submit}) => {
               </div>
             )}
 
-            {previewImage && (
-              <UpLoadedImg img_url={previewImage} onDelete={handleImgDelete} />
+            {previewImageUrl && (
+              <UpLoadedImg img_url={previewImageUrl} onDelete={handleImgDelete} />
             )}
 
             <div className=" d-flex justify-content-center">
@@ -164,11 +96,6 @@ const Tips = ({handleSubmit:submit}) => {
 
             <p className=""> Demonstrate your tip </p>
           </div>
-          <button disabled={isimgLoading}>
-            {" "}
-            {isLoading ? <> creating</> : <>Submit</>}
-          </button>
-          <button onClick={handleDeleteAll}> Delete all </button>
         </form>
       </div>
       <ToastContainer />

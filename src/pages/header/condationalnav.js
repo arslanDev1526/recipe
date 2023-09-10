@@ -3,8 +3,11 @@ import styles from "./condationalnav.module.css";
 import { Dropdown } from "react-bootstrap";
 import { ThreeDots } from "../../components/index";
 import { DeleteIcon } from "../../components/index";
+import { useTipsContext } from "../../contexts";
 
-const CondationalNav = ({handleSubmit}) => {
+const CondationalNav = () => {
+  const { handleSubmit, isSubmitting } = useTipsContext()
+
   const handleDeleteRecipe = () => {
     console.log("delete");
   };
@@ -27,13 +30,12 @@ const CondationalNav = ({handleSubmit}) => {
         </div>
 
         <div className={`d-flex align-items-center`}>
-          {" "}
+          {isSubmitting ? "Publishing" : "Publish"}
           <button
             onClick={handleSubmit}
             className={`border-0 px-4 py-1 rounded text-white  ${styles.btn} `}
           >
-            {" "}
-            Publish{" "}
+            Publish
           </button>
           <Dropdown className={`${styles.dropdown}`}>
             <Dropdown.Toggle

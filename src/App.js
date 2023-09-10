@@ -19,36 +19,35 @@ import SignUp from "./pages/login/signup";
 import SignIn from "./pages/login/signin";
 import ProfileTips from "./pages/profile/profiletips";
 import ProfileTipsUpdate from "./pages/profile/profiletipsupdate";
+import { TipsProvider, useTipsContext } from "./contexts/tipsContext";
+
 
 const App = () => {
 
 
-  const handleSubmit = () => {
-
-console.log("handleSubmit");
-  };
-
   return (
+
     <div className={Styles["main-container"]}>
       <Router>
-        <Header handleSubmit={handleSubmit} />
+        <TipsProvider>
+          <Header />
+          <Routes>
+            <Route path="/" element={<SignUp />} />
+            <Route path="/signin" element={<SignIn />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/categ" element={<Categ />} />
+            <Route path="/createRecipe" element={<CreateRecipe />} />
+            <Route path="/search" element={<Search />} />
+            <Route path="/create" element={<Create />} />
+            <Route path="/tips" element={<Tips />} />
+            <Route path="/activity" element={<Activity />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="tips/:id" element={<ProfileTipsUpdate />} />
+            <Route path="*" element={<NoMatch />} />
+          </Routes>
 
-        <Routes>
-          <Route path="/" element={<SignUp />} />
-          <Route path="/signin" element={<SignIn />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/categ" element={<Categ />} />
-          <Route path="/createRecipe" element={<CreateRecipe />} />
-          <Route path="/search" element={<Search />} />
-          <Route path="/create" element={<Create />} />
-          <Route path="/tips" element={<Tips handleSubmit={handleSubmit} />} />
-          <Route path="/activity" element={<Activity />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="tips/:id" element={<ProfileTipsUpdate />} />
-          <Route path="*" element={<NoMatch />} />
-        </Routes>
-
-        <Footer />
+          <Footer />
+        </TipsProvider>
       </Router>
     </div>
   );
