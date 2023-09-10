@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./tips.module.css";
-import "react-toastify/dist/ReactToastify.css";
 import UpLoadedImg from "./uploadedimg";
 import { useTipsContext } from "../../contexts";
 
@@ -98,7 +97,6 @@ const Tips = ({handleSubmit}) => {
           </div>
         </form>
       </div>
-      <ToastContainer />
     </>
   );
 };

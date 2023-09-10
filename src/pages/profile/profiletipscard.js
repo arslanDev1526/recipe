@@ -4,8 +4,8 @@ import supabase from "../../config/client";
 import styles from "./profiletipscard.module.css";
 import { DeleteIcon } from "../../components/index";
 import { EditIcon } from "../../components/index";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
+
 
 // const getImgUrl =  async ({ bucketName, path }) => {
 //   const { data } = await supabase.storage
@@ -82,8 +82,6 @@ const ProfileTipsCard = ({ tip, onDelete }) => {
             <DeleteIcon />{" "}
           </button>
         </div>
-
-        <ToastContainer />
       </div>
     </>
   );

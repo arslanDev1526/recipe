@@ -2,7 +2,6 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import styles from "../tips/tips.module.css";
-import "react-toastify/dist/ReactToastify.css";
 import { useTipsContext } from "../../contexts";
 
 const ProfileTipsUpdate = () => {
