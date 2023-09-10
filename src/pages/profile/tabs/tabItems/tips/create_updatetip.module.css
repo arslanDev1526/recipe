@@ -1,0 +1,74 @@
+.form {
+    width: 23.3rem;
+    background-color: white;
+  }
+  
+  .input {
+    width: 21rem;
+    background-color: rgba(248, 246, 242, 1);
+    border: none;
+  }
+  
+  .input:focus {
+    outline: none;
+  }
+  
+  .textarea {
+    width: 21rem;
+    border: none;
+    background-color: rgba(248, 246, 242, 1);
+    resize: none;
+  }
+  
+  .textarea:focus {
+    outline: none;
+  }
+  
+  .upload {
+    width: 21rem;
+  
+    background-color: rgba(248, 246, 242, 1);
+  }
+  
+  .upload:hover {
+    cursor: pointer;
+  }
+  
+  .upload-img {
+    height: 18rem;
+  }
+  
+  .update-img-contain {
+    margin-top: 1rem;
+    width: 19rem;
+    height: 12rem;
+  }
+  
+  .update-img {
+    width: 100%;
+    height: 100%;
+  }
+  
+  @media (min-width: 768px) {
+    .form {
+      width: 40rem;
+    }
+  
+    .input {
+      width: 38rem;
+    }
+  
+    .textarea {
+      width: 38rem;
+    }
+  
+    .upload {
+      width: 38rem;
+    }
+  
+    .update-img-contain {
+      width: 32rem;
+      height: 15rem;
+    }
+  }
+  

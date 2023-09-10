@@ -42,13 +42,13 @@ export const CreateTip = () => {
         {formerror && <h3 className="text-danger ">{formerror}</h3>}
         <form
           onSubmit={handleSubmit}
-          className={` d-flex flex-column align-items-center bg-white ${styles["tips-container"]} `}
+          className={`d-flex flex-column align-items-center bg-white ${styles.form} `}
         >
           <input
           name="title"
             value={title}
             onChange={handleChange}
-            className={`my-2  p-2 fs-4 ${styles["tips-input"]}`}
+            className={`my-2  p-2 fs-4 ${styles.input}`}
             type="text"
             placeholder="Title:How to dice an onion"
           />
@@ -60,7 +60,7 @@ export const CreateTip = () => {
               value={description}
               onChange={handleChange}
               rows={5}
-              className={`p-2 fs-5 ${styles["tips-textarea"]}`}
+              className={`p-2 fs-5 ${styles.textarea}`}
               placeholder="To dice an onion, use a chef knife to cut the onion in half from the stem tip to the bottom root."
             />
           </div>

@@ -3,7 +3,6 @@ import { Container } from "react-bootstrap";
 import { ProfileDetails } from "./ProfileDetails";
 import { Tabs } from "./tabs";
 
-
 export const Profile = () => {
   return (
     <>

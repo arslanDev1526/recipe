@@ -4,7 +4,7 @@ import styles from "./profile.module.css";
 export const ProfileDetails = () => {
   return (
     <>
-      <div className={` bg-white py-4 rounded ${styles["profile-container"]}`}>
+      <div className={`bg-white py-4 rounded ${styles["profile-container"]}`}>
         <div className="d-flex gap-2 mx-3">
           <img
             className={`${styles["profile-img"]}`}
