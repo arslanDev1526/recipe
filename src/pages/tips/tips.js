@@ -1,13 +1,12 @@
 import React from "react";
 import styles from "./tips.module.css";
-import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import UpLoadedImg from "./uploadedimg";
 import { useTipsContext } from "../../contexts";
 
 
+const Tips = ({handleSubmit}) => {
 
-const Tips = () => {
   const {
     isSubmitting,
     isUploading,
@@ -21,14 +20,7 @@ const Tips = () => {
 
   const { title, description } = formData
 
-  console.log("COnsumer tip", previewImageUrl)
   const handleDeleteAll = () => {
-    // setTitle("");
-    // setDescription("");
-    // setImg_url("");
-    // // setFormerror(null)
-    // setPreviewImage(null);
-    // setIsLoading(false);
   };
 
   const handleClick = (event) => {
@@ -104,11 +96,6 @@ const Tips = () => {
 
             <p className=""> Demonstrate your tip </p>
           </div>
-          {/* <button disabled={isSubmitting}>
-            {" "}
-            {isSubmitting ? "Creating..." : "Submit"}
-          </button>
-          <button onClick={handleDeleteAll}> Delete all </button> */}
         </form>
       </div>
       <ToastContainer />

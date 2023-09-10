@@ -26,36 +26,28 @@
 
 .upload {
   width: 21rem;
-  /* height: 400px; */
+
   background-color: rgba(248, 246, 242, 1);
 }
 
-.upload:hover { 
+.upload:hover {
   cursor: pointer;
 }
 
-.upload-img { 
- 
+.upload-img {
   height: 18rem;
 }
 
-
-.update-img-contain  {
+.update-img-contain {
   margin-top: 1rem;
-  width: 19rem; 
+  width: 19rem;
   height: 12rem;
-  /* overflow: hidden; */
-
-  /* border: solid red 1px; */
-
 }
 
 .update-img {
   width: 100%;
   height: 100%;
-  /* object-fit: contain; */
 }
-
 
 @media (min-width: 768px) {
   .tips-container {
@@ -74,18 +66,8 @@
     width: 38rem;
   }
 
-  .update-img-contain { 
-    width: 32rem ;
+  .update-img-contain {
+    width: 32rem;
     height: 15rem;
-    
   }
 }
-
-
-
-
-
-
-
-
- 

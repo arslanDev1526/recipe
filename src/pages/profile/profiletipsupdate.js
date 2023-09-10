@@ -1,13 +1,11 @@
 import React from "react";
-import { useParams, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import styles from "../tips/tips.module.css";
-import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useTipsContext } from "../../contexts";
 
 const ProfileTipsUpdate = () => {
-  const { id } = useParams();
   const location = useLocation();
   const tip = location.state
 
@@ -68,7 +66,7 @@ const ProfileTipsUpdate = () => {
           </div>
 
           <div
-            className={`my-2 py-2 d-flex justify-content-between flex-column align-items-center ${styles.upload}`}
+            className={`my-2 py-2 d-flex gap-5 flex-column align-items-center border border-primary ${styles.upload}`}
           >
             <div className={`${styles["update-img-contain"]}`}>
               <img className={`${styles["update-img"]}`} src={previewImageUrl} />
@@ -81,14 +79,10 @@ const ProfileTipsUpdate = () => {
                 type="file"
               />
             </div>
-
             <p> Demonstrate your tip </p>
           </div>
-
-          {/* <button> {isLoading ? <> Updating</> : <> Update </>}</button> */}
         </form>
       </div>
-      <ToastContainer />
     </>
   );
 };
