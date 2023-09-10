@@ -35,8 +35,8 @@ const App = () => {
             <Route path="/search" element={<Search />} />
             <Route path="/create" element={<Create />} />
             <Route path="/activity" element={<Activity />} />
-            <Route path="/profile" element={<Profile />}>
-              <Route index element={<Tabs />} />
+            <Route path="/profile" >
+              <Route index element={<Profile />} />
               <Route path="tips/create" element={<CreateTip />} />
               <Route path="tips/:id" element={<UpdateTip />} /> 
             </Route>

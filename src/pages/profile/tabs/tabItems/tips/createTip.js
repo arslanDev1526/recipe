@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./tips.module.css";
 import UpLoadedImg from "./uploadedimg";
 import { useTipsContext } from "../../../../../contexts";
@@ -15,6 +15,7 @@ export const CreateTip = () => {
     handleChange,
     onImageChange,
     handleSubmit,
+    reset,
   } = useTipsContext()
 
   const { title, description } = formData
@@ -33,10 +34,11 @@ export const CreateTip = () => {
     // setFormerror(null);
   };
 
+  useEffect(() => reset, [])
 
   return (
     <>
-      <div className="d-flex flex-column align-items-center py-4 bg-white ">
+      <div className="d-flex flex-column align-items-center py-4 bg-white">
         {formerror && <h3 className="text-danger ">{formerror}</h3>}
         <form
           onSubmit={handleSubmit}
