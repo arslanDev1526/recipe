@@ -1,10 +1,10 @@
 import React from "react";
 import styles from "./tips.module.css";
 import UpLoadedImg from "./uploadedimg";
-import { useTipsContext } from "../../contexts";
+import { useTipsContext } from "../../../../../contexts";
 
 
-const Tips = ({handleSubmit}) => {
+export const CreateTip = () => {
 
   const {
     isSubmitting,
@@ -100,5 +100,3 @@ const Tips = ({handleSubmit}) => {
     </>
   );
 };
-
-export default Tips;

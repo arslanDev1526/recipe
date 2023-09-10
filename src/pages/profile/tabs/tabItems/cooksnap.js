@@ -1,8 +1,8 @@
 import React from "react";
-import styles from "./profile.module.css";
-
+import styles from "./cooksnap.module.css";
 import { Link } from "react-router-dom";
-const CookSnap = () => {
+
+export const CookSnap = () => {
   return (
     <>
       <div>
@@ -32,5 +32,3 @@ const CookSnap = () => {
     </>
   );
 };
-
-export default CookSnap;

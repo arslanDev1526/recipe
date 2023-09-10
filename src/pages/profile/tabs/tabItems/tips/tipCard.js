@@ -1,38 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import supabase from "../../config/client";
-import styles from "./profiletipscard.module.css";
-import { DeleteIcon } from "../../components/index";
-import { EditIcon } from "../../components/index";
+import supabase from "../../../../../config/client";
+import styles from "./tipCard.module.css";
+import { DeleteIcon } from "../../../../../components/index";
+import { EditIcon } from "../../../../../components/index";
 import { toast } from "react-toastify";
 
 
-// const getImgUrl =  async ({ bucketName, path }) => {
-//   const { data } = await supabase.storage
-//     .from(bucketName)
-//     .getPublicUrl(path);
-
-//   const { url } = data;
-//   return url;
-// };
-
-const ProfileTipsCard = ({ tip, onDelete }) => {
-  // const [url, setUrl] = useState(null);
-  // const url = getImgUrl({
-  //   bucketName: "tips",
-  //   path: tip.img_url,
-  // });
-
-  // console.log("getImgUrl", url)
-
-  useEffect(() => {
-
-
-    // getImgUrl({
-    //   bucketName: "tips",
-    //   path: tip.img_url,
-    // });
-  }, []);
+export const TipCard = ({ tip, onDelete }) => {
 
   const handleDelete = async () => {
     const deletingToastId = toast.info("Deleting...", {
@@ -86,5 +61,3 @@ const ProfileTipsCard = ({ tip, onDelete }) => {
     </>
   );
 };
-
-export default ProfileTipsCard;

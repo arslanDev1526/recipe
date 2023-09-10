@@ -2,9 +2,9 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import styles from "../tips/tips.module.css";
-import { useTipsContext } from "../../contexts";
+import { useTipsContext } from "../../../../../contexts";
 
-const ProfileTipsUpdate = () => {
+export const UpdateTip = () => {
   const location = useLocation();
   const tip = location.state
 
@@ -85,5 +85,3 @@ const ProfileTipsUpdate = () => {
     </>
   );
 };
-
-export default ProfileTipsUpdate;

@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./profile.module.css";
 
-const ProfileImg = () => {
+export const ProfileDetails = () => {
   return (
     <>
       <div className={` bg-white py-4 rounded ${styles["profile-container"]}`}>
@@ -12,11 +12,10 @@ const ProfileImg = () => {
           />
 
           <div className="">
-            <h3 className="m-0"> arslan younas </h3> 
+            <h3 className="m-0"> Arslan Younas </h3> 
             <span> @arslan_react </span>
             <button className={` d-none d-sm-block border rounded mt-sm-2 ${styles.btn}`}>
-              {" "}
-              View Public Profile{" "}
+              View Public Profile
             </button>
           </div>
         </div>
@@ -24,5 +23,3 @@ const ProfileImg = () => {
     </>
   );
 };
-
-export default ProfileImg;
