@@ -25,8 +25,7 @@ export const Saved = () => {
               <button
                 className={`rounded d-none d-sm-block ${styles["tab1-btn"]} `}
               >
-                {" "}
-                Search{" "}
+                Search
               </button>
             </div>
           </div>

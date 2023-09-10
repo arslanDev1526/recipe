@@ -13,10 +13,11 @@ import Landing from "./pages/extras/landing";
 import Footer from "./pages/footer/footer";
 import SignUp from "./pages/login/signup";
 import SignIn from "./pages/login/signin";
-import { Tips, UpdateTip } from "./pages/profile/tabs/tabItems";
+import { Tips, UpdateTip, CreateTip } from "./pages/profile/tabs/tabItems";
 import { Profile } from "./pages/profile";
 
 import { TipsProvider } from "./contexts";
+import { Tabs } from "./pages/profile/tabs";
 
 const App = () => {
 
@@ -33,10 +34,12 @@ const App = () => {
             <Route path="/createRecipe" element={<CreateRecipe />} />
             <Route path="/search" element={<Search />} />
             <Route path="/create" element={<Create />} />
-            <Route path="/tips" element={<Tips />} />
             <Route path="/activity" element={<Activity />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="tips/:id" element={<UpdateTip />} />
+            <Route path="/profile" element={<Profile />}>
+              <Route index element={<Tabs />} />
+              <Route path="tips/create" element={<CreateTip />} />
+              <Route path="tips/:id" element={<UpdateTip />} /> 
+            </Route>
             <Route path="*" element={<NoMatch />} />
           </Routes>
 

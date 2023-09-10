@@ -115,12 +115,11 @@ function CookCard({ cardsData }) {
 
                     <div className=" d-flex gap-2 align-items-center ">
                       <div>
-                        {" "}
                         <img
                           className={` rounded-5 ${styles.img}`}
                           src={item.cardProfile}
                           alt="Card content"
-                        />{" "}
+                        />
                       </div>
 
                       <span className="fs-6">{item.userName}</span>

@@ -22,7 +22,6 @@ const Search = () => {
         </div>
 
         <div className="mt-4 mt-sm-5 d-flex flex-column align-items-center">
-          {" "}
           <SearchBox />
           <Link
             to="/categ"

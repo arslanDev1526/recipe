@@ -28,7 +28,7 @@ export const Tips = () => {
         </div>
         <Link
           className={`py-2 px-2 rounded  ${styles["saved-link"]}`}
-          to="/tips"
+          to="tips/create"
         >
           Create tips
         </Link>
@@ -51,9 +51,9 @@ export const Tips = () => {
         </div>
         <Link
           className={`py-2 px-2 rounded  ${styles["saved-link"]}`}
-          to="./tips"
+          to="tips/create"
         >
-          Create Tips
+          Create tips
         </Link>
       </div>
     </>
