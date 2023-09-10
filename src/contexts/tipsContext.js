@@ -4,17 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { useSelectImage } from "../utils/selectImage";
 import { toast } from "react-toastify";
 
-// .from("tips")
-// .update({ title, description, img_url })
-// .eq("id", id)
-// .select();
-
-
-// const { data, error } = await supabase
-//   .from('countries')
-//   .upsert({ id: 1, name: 'Albania' })
-//   .select()
-
 
 const uploadImage = async (image) => {
     if (!image) return { file: null, er: null };
@@ -80,7 +69,12 @@ export function TipsProvider({ children }) {
         e.preventDefault();
 
         setIsUploading(true);
+        setIsSubmitting(true);
         const { file, er } = await uploadImage(image)
+        if (er) {
+            setIsUploading(false);
+            throw new Error("Image uploading failed")
+        }
         setIsUploading(false);
 
         const { id, title, description } = formData
@@ -101,8 +95,6 @@ export function TipsProvider({ children }) {
             return;
         }
 
-        setIsSubmitting(true);
-
         const { data, error } = await supabase
             .from('tips')
             .upsert({
@@ -113,31 +105,13 @@ export function TipsProvider({ children }) {
             })
             .select()
 
-
         if (error) {
             setIsSubmitting(false);
-            console.log(error);
-            toast.error("*Failed Notification!", {
-                autoClose: 1000,
-            });
-            setFormerror("Fill All Fields");
-        }
-
-
-        if (er) {
-            throw new Error("Image uploading failed")
-        }
-
-        if (error) {
-            throw new Error("Failed to pusblish")
+            throw new Error("Failed to publbish")
         }
 
         if (data) {
             setIsSubmitting(false);
-            // toast.success("Success Notification!", {
-            //     autoClose: 1000,
-            // });
-            console.log(data, "postData");
             reset()
             return
         }
@@ -155,11 +129,9 @@ export function TipsProvider({ children }) {
                 },
                 success: {
                     render({ data }) {
-
                         return "Published successfully"
                     },
                     icon: true,
-
                     // icon: "🟢",
                 },
                 error: {
@@ -172,11 +144,9 @@ export function TipsProvider({ children }) {
         )
 
         setTimeout(() => navigate("/profile"), 0)
-
     }
 
 
-    console.log("provider tip", previewImageUrl)
 
     return (
         <TipContext.Provider
@@ -191,7 +161,7 @@ export function TipsProvider({ children }) {
                 loadContextData,
                 handleSubmit: WraperHandler,
             }}>
-            {children}
+            { children }
         </TipContext.Provider>
     )
 }
