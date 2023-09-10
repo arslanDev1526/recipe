@@ -71,7 +71,6 @@ export const CreateTip = () => {
                 className={`d-flex justify-content-center flex-column  ${styles["upload-img"]}`}
               >
                 <div>
-                  {" "}
                   <img src="https://global-web-assets.cpcdn.com/assets/camera_plus-083c8cd5bd9218f7dd96846708edbf1b2a5aa80e7eed3d5917c2a96390214931.png" />{" "}
                 </div>
 
@@ -84,13 +83,12 @@ export const CreateTip = () => {
             )}
 
             <div className=" d-flex justify-content-center">
-              {" "}
               <input
                 onClick={handleClick}
                 onChange={onImageChange}
                 className="border w-75"
                 type="file"
-              />{" "}
+              />
             </div>
 
             <p className=""> Demonstrate your tip </p>

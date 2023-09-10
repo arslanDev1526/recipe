@@ -47,14 +47,12 @@ export const TipCard = ({ tip, onDelete }) => {
         <div className=" mt-3 ">
           <Link to={"tips/" + tip.id} state={tip}>
             <button className={` mx-2 ${styles.btn}`}>
-              {" "}
-              <EditIcon />{" "}
+              <EditIcon />
             </button>
           </Link>
 
           <button className={`${styles.btn}`} onClick={handleDelete}>
-            {" "}
-            <DeleteIcon />{" "}
+            <DeleteIcon />
           </button>
         </div>
       </div>
