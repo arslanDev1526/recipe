@@ -71,3 +71,23 @@
     height: 15rem;
   }
 }
+
+
+
+
+
+.saved-link {
+  text-decoration: none;
+  background-color: #4a4a4a;
+  color: white;
+}
+
+.saved-link:hover {
+  opacity: 0.9;
+}
+
+
+.no-tip-section  { 
+
+  height: 200px;
+}
