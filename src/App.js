@@ -24,6 +24,7 @@ import { TipsProvider, useTipsContext } from "./contexts/tipsContext";
 
 const App = () => {
 
+
   return (
 
     <div className={Styles["main-container"]}>

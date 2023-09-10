@@ -10,7 +10,7 @@ import LinkItem from "./linkitem";
 import CondationalNav from "./condationalnav";
 import navItems from "./navitem";
 
-function Header() {
+function Header({handleSubmit}) {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const location = useLocation();
 
@@ -22,9 +22,9 @@ function Header() {
   if (ignoreRoutes.includes(location.pathname)) return null;
 
   const secondNav = ["/tips", "/createRecipe"];
-  if (secondNav.includes(location.pathname)) return <CondationalNav />;
+  if (secondNav.includes(location.pathname)) return <CondationalNav handleSubmit={handleSubmit} />;
 
-  if (/tips\/\d+/.test(location.pathname)) return <CondationalNav />;
+  if (/tips\/\d+/.test(location.pathname)) return <CondationalNav handleSubmit={handleSubmit} />;
 
   return (
     <>
