@@ -53,7 +53,8 @@ const SignUp = () => {
 
   return (
     <>
-      <Container  className={` d-flex flex-column justify-content-center ${ styles.container}`}>
+    <div className={`  d-flex flex-column justify-content-center align-items-center ${styles.wrapper}`}> 
+      <Container >
         <div className="">
           <h1 className="text-center">Sign Up</h1>
           <p className="text-center">Put your name and email here</p>
@@ -88,7 +89,7 @@ const SignUp = () => {
                       placeholder="Email"
                     />
                     {error.email && (
-                      <span className="  mx-3 text-danger">{error.email}</span>
+                      <span className="mx-3 text-danger">{error.email}</span>
                     )}
                   </div>
                   <div className="d-flex flex-column gap-1">
@@ -128,6 +129,7 @@ const SignUp = () => {
           </div>
         </div>
       </Container>
+      </div>
     </>
   );
 };

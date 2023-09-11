@@ -43,7 +43,8 @@ const SignIn = () => {
 
   return (
     <>
-      <Container className={` d-flex flex-column justify-content-center ${ styles.container}`}>
+    <div className={`  d-flex flex-column justify-content-center align-items-center ${styles.wrapper}`}> 
+      <Container>
         <div className="">
           <h1 className="text-center">Sign In</h1>
           <p className="text-center">Put your name and email here</p>
@@ -97,6 +98,7 @@ const SignIn = () => {
           </div>
         </div>
       </Container>
+      </div>
     </>
   );
 };

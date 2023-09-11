@@ -1,5 +1,9 @@
-.container {
-  height: 30.25rem;
+
+
+.wrapper{ 
+ 
+    height: 100vh;
+   
 }
 
 .signup-btn {
@@ -30,16 +34,8 @@ input[type="password"]:focus {
  
 }
 
-@media (min-width: 1024px) {
-  .container {
-    height: 40.35rem;
-  }
-}
-
 @media (min-width: 1240px) {
-  .container {
-    height: 35.5rem;
-  }
+ 
 
   .card {
     width: 30rem;
