@@ -9,7 +9,6 @@ const Footer = () => {
   const ignoreRoutes = ["/", "/signin", "/categ", "/createRecipe" , "/tips" ,];
 
   if (ignoreRoutes.includes(window.location.pathname)) return null;
-
   if (/tips\/\d+/.test(location.pathname)) return null;
 
   return (
@@ -30,7 +29,6 @@ const Footer = () => {
             <div
               className={`gap-1 d-flex flex-column px-2 ${styles["about-links"]}`}
             >
-              {" "}
               <h3>Learn More</h3>
               <a href="#">Careers</a>
               <a href="#">Feedback</a>

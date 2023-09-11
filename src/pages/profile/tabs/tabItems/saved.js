@@ -1,10 +1,9 @@
 import React from "react";
-import styles from "./profile.module.css";
-
-import { Search } from "../../components/index";
+import styles from "./saved.module.css";
 import { Link } from "react-router-dom";
+import { Search } from "../../../../components";
 
-const Saved = () => {
+export const Saved = () => {
   return (
     <>
       <div className={` ${styles["tab-content"]}`}>
@@ -26,8 +25,7 @@ const Saved = () => {
               <button
                 className={`rounded d-none d-sm-block ${styles["tab1-btn"]} `}
               >
-                {" "}
-                Search{" "}
+                Search
               </button>
             </div>
           </div>
@@ -56,5 +54,3 @@ const Saved = () => {
     </>
   );
 };
-
-export default Saved;

@@ -32,7 +32,7 @@ const Create = () => {
 
             <div className={` py-2 px-2 rounded ${styles["tips-parent"]}`}>
               <Tips />
-              <Link className={`mx-2 ${styles.tips}`} to="/tips">
+              <Link className={`mx-2 ${styles.tips}`} to="/profile/tips/create">
                 Tips
               </Link>
             </div>

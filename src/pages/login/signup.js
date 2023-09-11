@@ -111,19 +111,16 @@ const SignUp = () => {
                     type="submit"
                     // onClick={handleNavigation}
                   >
-                    {" "}
-                    Sign Up{" "}
+                    Sign Up
                   </button>
 
 
 
                   <p className=" text-center">
-                    {" "}
-                    Already Sign Up?{" "}
+                    Already Sign Up?
                     <span className="mx-2">
-                      {" "}
-                      <Link to="/signin">Sign In</Link>{" "}
-                    </span>{" "}
+                      <Link to="/signin">Sign In</Link>
+                    </span>
                   </p>
                 </form>
               </Card>

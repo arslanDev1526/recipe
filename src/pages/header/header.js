@@ -21,7 +21,7 @@ function Header({handleSubmit}) {
   const ignoreRoutes = ["/", "/signin", "/categ"];
   if (ignoreRoutes.includes(location.pathname)) return null;
 
-  const secondNav = ["/tips", "/createRecipe"];
+  const secondNav = ["/profile/tips/create", "/createRecipe"];
   if (secondNav.includes(location.pathname)) return <CondationalNav handleSubmit={handleSubmit} />;
 
   if (/tips\/\d+/.test(location.pathname)) return <CondationalNav handleSubmit={handleSubmit} />;

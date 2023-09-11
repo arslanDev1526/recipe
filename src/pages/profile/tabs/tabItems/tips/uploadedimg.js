@@ -3,8 +3,7 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-// import Card from "react-bootstrap/Card";
-import { DeleteIcon } from "../../components/index";
+import { DeleteIcon } from "../../../../../components/index";
 import styles from "./uploadeimg.module.css";
 
 const UpLoadedImg = ({ img_url, onDelete }) => {
@@ -20,12 +19,9 @@ const UpLoadedImg = ({ img_url, onDelete }) => {
             <img className={` mt-3 ${styles.img}`} src={img_url} />
 
             <button className={styles["del-btn"]} onClick={handleDelete}>
-              {" "}
-              <DeleteIcon />{" "}
+              <DeleteIcon />
             </button>
           </div>
-
-        
         </Col>
       </Row>
     </Container>

@@ -1,10 +1,10 @@
 import React from "react";
-import styles from "./tips.module.css";
+import styles from "./create_updatetip.module.css";
 import UpLoadedImg from "./uploadedimg";
-import { useTipsContext } from "../../contexts";
+import { useTipsContext } from "../../../../../contexts";
 
 
-const Tips = ({handleSubmit}) => {
+export const CreateTip = () => {
 
   const {
     isSubmitting,
@@ -40,13 +40,13 @@ const Tips = ({handleSubmit}) => {
         {formerror && <h3 className="text-danger ">{formerror}</h3>}
         <form
           onSubmit={handleSubmit}
-          className={` d-flex flex-column align-items-center bg-white ${styles["tips-container"]} `}
+          className={`d-flex flex-column align-items-center bg-white ${styles.form} `}
         >
           <input
           name="title"
             value={title}
             onChange={handleChange}
-            className={`my-2  p-2 fs-4 ${styles["tips-input"]}`}
+            className={`my-2  p-2 fs-4 ${styles.input}`}
             type="text"
             placeholder="Title:How to dice an onion"
           />
@@ -58,7 +58,7 @@ const Tips = ({handleSubmit}) => {
               value={description}
               onChange={handleChange}
               rows={5}
-              className={`p-2 fs-5 ${styles["tips-textarea"]}`}
+              className={`p-2 fs-5 ${styles.textarea}`}
               placeholder="To dice an onion, use a chef knife to cut the onion in half from the stem tip to the bottom root."
             />
           </div>
@@ -71,7 +71,6 @@ const Tips = ({handleSubmit}) => {
                 className={`d-flex justify-content-center flex-column  ${styles["upload-img"]}`}
               >
                 <div>
-                  {" "}
                   <img src="https://global-web-assets.cpcdn.com/assets/camera_plus-083c8cd5bd9218f7dd96846708edbf1b2a5aa80e7eed3d5917c2a96390214931.png" />{" "}
                 </div>
 
@@ -84,13 +83,12 @@ const Tips = ({handleSubmit}) => {
             )}
 
             <div className=" d-flex justify-content-center">
-              {" "}
               <input
                 onClick={handleClick}
                 onChange={onImageChange}
                 className="border w-75"
                 type="file"
-              />{" "}
+              />
             </div>
 
             <p className=""> Demonstrate your tip </p>
@@ -100,5 +98,3 @@ const Tips = ({handleSubmit}) => {
     </>
   );
 };
-
-export default Tips;
