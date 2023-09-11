@@ -17,17 +17,17 @@
 
 input[type="text"]:focus {
   outline: none;
-  background-color: white;
+
 }
 
 input[type="email"]:focus {
   outline: none;
-  background-color: white;
+ 
 }
 
 input[type="password"]:focus {
   outline: none;
-  background-color: white;
+ 
 }
 
 @media (min-width: 1024px) {

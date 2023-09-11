@@ -37,7 +37,7 @@ export const UpdateTip = () => {
 
   return (
     <>
-      <div className="d-flex flex-column align-items-center py-4 bg-white mt-5 ">
+      <div className="d-flex flex-column align-items-center py-1 bg-white ">
         {formError && <h3 className="text-danger ">{formError}</h3>}
         <form
           onSubmit={handleSubmit}
