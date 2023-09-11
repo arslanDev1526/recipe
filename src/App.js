@@ -15,6 +15,7 @@ import SignUp from "./pages/login/signup";
 import SignIn from "./pages/login/signin";
 import { Tips, UpdateTip, CreateTip } from "./pages/profile/tabs/tabItems";
 import { Profile } from "./pages/profile";
+import styles from "../src/pages/app.module.css";
 
 import { TipsProvider } from "./contexts";
 import { Tabs } from "./pages/profile/tabs";
@@ -22,7 +23,9 @@ import { Tabs } from "./pages/profile/tabs";
 const App = () => {
 
   return (
-    <div className={Styles["main-container"]}>
+   
+
+      <div className={`${styles["main-container"]}`}>  
       <Router>
         <TipsProvider>
           <Header />

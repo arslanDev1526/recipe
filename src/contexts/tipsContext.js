@@ -48,12 +48,12 @@ export function TipsProvider({ children }) {
     }
 
     const reset = () => {
-        console.log("REST")
+        console.log("RESET")
         setFormerror(null);
         setFormData({ title: "", description: "", })
         setIsSubmitting(false)
         setIsUploading(false)
-        clearImage()
+        clearImage() 
     }
 
     const handleChange = (e) => {

@@ -1,16 +1,49 @@
-.signup-btn { 
-
-    border: none;
-    background-color: orange;
-    text-decoration: none;
-    color: black;
-
-   
+.container {
+  height: 30.25rem;
 }
 
-.signup-btn:hover { 
+.signup-btn {
+  border: none;
+  background-color: orange;
+  text-decoration: none;
+  color: black;
+  font-size: larger;
+}
 
-    opacity: .9;
-    cursor: pointer;
-    /* background-color: red; */
+.signup-btn:hover {
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  background-color: white;
+}
+
+input[type="email"]:focus {
+  outline: none;
+  background-color: white;
+}
+
+input[type="password"]:focus {
+  outline: none;
+  background-color: white;
+}
+
+@media (min-width: 1024px) {
+  .container {
+    height: 40.35rem;
+  }
+}
+
+@media (min-width: 1240px) {
+  .container {
+    height: 35.5rem;
+  }
+
+  .card {
+    width: 30rem;
+
+    margin-left: 2.5rem;
+  }
 }
