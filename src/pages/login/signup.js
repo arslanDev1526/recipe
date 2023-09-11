@@ -53,36 +53,36 @@ const SignUp = () => {
 
   return (
     <>
-      <Container>
-        <div className="mt-5">
+      <Container  className={` d-flex flex-column justify-content-center ${ styles.container}`}>
+        <div className="">
           <h1 className="text-center">Sign Up</h1>
           <p className="text-center">Put your name and email here</p>
 
           <div className="row justify-content-center">
             <div className="col-sm-8 col-md-6 col-lg-6">
-              <Card className="d-flex flex-column vh-75">
+              <Card className={` d-flex flex-column vh-75 ${styles.card}`}>
                 <form
-                  className="d-flex flex-column gap-3"
+                  className="d-flex flex-column gap-1"
                   onSubmit={handleSubmit}
                 >
                   <div className="d-flex flex-column gap-1 mt-4">
-                    <label className="mx-3">Name</label>
+                    <label className="mx-4">Name</label>
                     <input
                       onChange={handleName}
-                      className="py-1 mx-3 border"
+                      className="p-2 rounded mx-3 border"
                       value={name}
                       type="text"
                       placeholder="Name"
                     />
                     {error.name && (
-                      <span className="  mx-3 text-danger">{error.name}</span>
+                      <span className="mx-3 text-danger">{error.name}</span>
                     )}
                   </div>
                   <div className="d-flex flex-column gap-1">
-                    <label className="mx-3">Email Address</label>
+                    <label className="mx-4">Email Address</label>
                     <input
                       onChange={handleEmail}
-                      className="py-1 mx-3 border"
+                      className="p-2 rounded mx-3 border"
                       value={email}
                       type="email"
                       placeholder="Email"
@@ -92,10 +92,10 @@ const SignUp = () => {
                     )}
                   </div>
                   <div className="d-flex flex-column gap-1">
-                    <label className="mx-3">Password</label>
+                    <label className="mx-4">Password</label>
                     <input
                       onChange={handlePassword}
-                      className="py-1 mx-3 border"
+                      className="p-2 rounded mx-3 border"
                       value={password}
                       type="password"
                       placeholder="Password"
@@ -107,9 +107,9 @@ const SignUp = () => {
                     )}
                   </div>
                   <button
-                    className={` mx-3 py-2  my-1 rounded ${styles["signup-btn"]}`}
+                    className={` mx-3 py-2  my-2 rounded ${styles["signup-btn"]}`}
                     type="submit"
-                    // onClick={handleNavigation}
+                   
                   >
                     Sign Up
                   </button>

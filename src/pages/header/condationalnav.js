@@ -29,8 +29,8 @@ const CondationalNav = () => {
         </div>
 
         <div className={`d-flex align-items-center`}>
-          {isSubmitting ? "Publishing" : "Publish"}
           <button
+          disabled={isSubmitting}
             onClick={handleSubmit}
             className={`border-0 px-4 py-1 rounded text-white  ${styles.btn} `}
           >

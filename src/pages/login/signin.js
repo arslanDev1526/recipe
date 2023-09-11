@@ -43,37 +43,37 @@ const SignIn = () => {
 
   return (
     <>
-      <Container>
-        <div className="mt-5">
+      <Container className={` d-flex flex-column justify-content-center ${ styles.container}`}>
+        <div className="">
           <h1 className="text-center">Sign In</h1>
           <p className="text-center">Put your name and email here</p>
 
           <div className="row justify-content-center">
             <div className="col-sm-8 col-md-6 col-lg-6">
-              <Card className="d-flex flex-column vh-75">
+              <Card className={` d-flex flex-column vh-75 ${styles.card}`}>
                 <form
                   className="d-flex flex-column gap-3"
                   onSubmit={handleSubmit}
                 >
                   <div className="d-flex flex-column gap-1 mt-4"></div>
                   <div className="d-flex flex-column gap-1">
-                    <label className="mx-3">Email Address</label>
+                    <label className="mx-4">Email Address</label>
                     <input
-                      className="py-1 mx-3 border"
+                      className="p-2 rounded mx-3 border"
                       type="email"
                       placeholder="Email"
                       onChange={handleEmail}
                       value={email}
                     />
                     {error.email && (
-                      <span className="  mx-3 text-danger">{error.email}</span>
+                      <span className="mx-3 text-danger">{error.email}</span>
                     )}
                   </div>
 
                   <div className="d-flex flex-column gap-1">
-                    <label className="mx-3">Password</label>
+                    <label className="mx-4">Password</label>
                     <input
-                      className="py-1 mx-3 border"
+                      className="p-2 rounded mx-3 border"
                       type="password"
                       placeholder="Password"
                       onChange={handlePassword}

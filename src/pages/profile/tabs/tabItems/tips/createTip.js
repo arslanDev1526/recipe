@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./create_updatetip.module.css";
 import UpLoadedImg from "./uploadedimg";
 import { useTipsContext } from "../../../../../contexts";
@@ -10,11 +10,14 @@ export const CreateTip = () => {
     isSubmitting,
     isUploading,
     previewImageUrl,
+    setPreviewImageUrl,
+    setImage,
     formData,
     formerror,
     handleChange,
     onImageChange,
     handleSubmit,
+    reset,
   } = useTipsContext()
 
   const { title, description } = formData
@@ -29,14 +32,18 @@ export const CreateTip = () => {
 
 
   const handleImgDelete = () => {
-    // setPreviewImage(null);
-    // setFormerror(null);
+    // setPreviewImageUrl(null);
+    // setImage(null);
+ 
+    console.log(" ==> i am clciked to delete")
+
   };
 
+  useEffect(() => reset, [])
 
   return (
     <>
-      <div className="d-flex flex-column align-items-center py-4 bg-white ">
+      <div className="d-flex flex-column align-items-center py-2 bg-white">
         {formerror && <h3 className="text-danger ">{formerror}</h3>}
         <form
           onSubmit={handleSubmit}

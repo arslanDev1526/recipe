@@ -5,6 +5,7 @@ export const useSelectImage = () => {
   const [image, setImage] = useState(null);
 
   const clearImage = () => {
+    console.log("hello")
     setImage(null)
     setPreviewImageUrl(null)
   }
@@ -17,11 +18,6 @@ export const useSelectImage = () => {
     reader.readAsDataURL(image);
   }
 
-
-  //clear image when component unmount
-  useEffect(() => {
-    return clearImage()
-  }, [])
 
 
   return { image, setImage, previewImageUrl, setPreviewImageUrl, clearImage, }

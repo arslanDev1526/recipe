@@ -18,9 +18,9 @@ const UpLoadedImg = ({ img_url, onDelete }) => {
           <div className={`${styles["img-card"]}`}>
             <img className={` mt-3 ${styles.img}`} src={img_url} />
 
-            <button className={styles["del-btn"]} onClick={handleDelete}>
+            {/* <button className={styles["del-btn"]} onClick={handleDelete}>
               <DeleteIcon />
-            </button>
+            </button> */}
           </div>
         </Col>
       </Row>

@@ -6,7 +6,7 @@ import styles from "./footer.module.css";
 const Footer = () => {
   const location = useLocation();
 
-  const ignoreRoutes = ["/", "/signin", "/categ", "/createRecipe" , "/tips" ,];
+  const ignoreRoutes = ["/", "/signin", "/categ", "/createRecipe" , "/tips" , "/profile/tips/create"];
 
   if (ignoreRoutes.includes(window.location.pathname)) return null;
   if (/tips\/\d+/.test(location.pathname)) return null;

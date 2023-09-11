@@ -1,4 +1,4 @@
-import supabase from "../../../src/config/client";
+import supabase from "../../config/client";
 import React, { useEffect, useState } from "react";
 
 

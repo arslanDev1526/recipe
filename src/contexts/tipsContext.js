@@ -48,19 +48,24 @@ export function TipsProvider({ children }) {
     }
 
     const reset = () => {
+        console.log("RESET")
         setFormerror(null);
         setFormData({ title: "", description: "", })
-        clearImage()
+        setIsSubmitting(false)
+        setIsUploading(false)
+        clearImage() 
     }
 
     const handleChange = (e) => {
         e.preventDefault()
         const { target: { name, value } } = e
         setFormData({ ...formData, [name]: value })
+        setFormerror(null);
     }
 
     const onImageChange = async (e) => {
         e.preventDefault()
+        setFormerror(null);
         const file = e.target.files[0];
         setImage(file)
     }
@@ -80,22 +85,27 @@ export function TipsProvider({ children }) {
         const { id, title, description } = formData
         const img_url = (image) ? file.path : null
 
+        if (!title && !description && !(img_url || previewImageUrl)) {
+            setFormerror("All fields are required");
+            throw new Error("All fields are required")
+        }
+
         if (!title) {
             setFormerror("Title is required");
-            return;
+            throw new Error("Title is required")
         }
 
         if (!description) {
             setFormerror("Description is rquired");
-            return;
+            throw new Error("Description is rquired")
         }
 
         if (!(img_url || previewImageUrl)) {
             setFormerror("Image is required");
-            return;
+            throw new Error("Image is required")
         }
 
-        const { data, error } = await supabase
+        const { error } = await supabase
             .from('tips')
             .upsert({
                 ...(id && { id }),
@@ -106,14 +116,7 @@ export function TipsProvider({ children }) {
             .select()
 
         if (error) {
-            setIsSubmitting(false);
-            throw new Error("Failed to publbish")
-        }
-
-        if (data) {
-            setIsSubmitting(false);
-            reset()
-            return
+            throw new Error("Failed to pubilsh")
         }
     };
 
@@ -136,14 +139,22 @@ export function TipsProvider({ children }) {
                 },
                 error: {
                     render({ data }) {
-                        return "Failed to publish"
+                        return data?.message || "Failed to publish"
                     },
                     icon: true,
                 }
             }
         )
-
-        setTimeout(() => navigate("/profile"), 0)
+        .then(() => {            
+            setTimeout(() => {
+                reset()
+                navigate("/profile")}, 0)
+        })
+        .catch((e) => {
+            setIsSubmitting(false)
+            setIsUploading(false)
+            console.log("error", e)
+        })
     }
 
 
@@ -159,6 +170,7 @@ export function TipsProvider({ children }) {
                 handleChange,
                 onImageChange,
                 loadContextData,
+                reset,
                 handleSubmit: WraperHandler,
             }}>
             { children }

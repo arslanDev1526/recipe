@@ -15,6 +15,7 @@ import SignUp from "./pages/login/signup";
 import SignIn from "./pages/login/signin";
 import { Tips, UpdateTip, CreateTip } from "./pages/profile/tabs/tabItems";
 import { Profile } from "./pages/profile";
+import styles from "../src/pages/app.module.css";
 
 import { TipsProvider } from "./contexts";
 import { Tabs } from "./pages/profile/tabs";
@@ -22,7 +23,9 @@ import { Tabs } from "./pages/profile/tabs";
 const App = () => {
 
   return (
-    <div className={Styles["main-container"]}>
+   
+
+      <div className={`${styles["main-container"]}`}>  
       <Router>
         <TipsProvider>
           <Header />
@@ -35,8 +38,8 @@ const App = () => {
             <Route path="/search" element={<Search />} />
             <Route path="/create" element={<Create />} />
             <Route path="/activity" element={<Activity />} />
-            <Route path="/profile" element={<Profile />}>
-              <Route index element={<Tabs />} />
+            <Route path="/profile" >
+              <Route index element={<Profile />} />
               <Route path="tips/create" element={<CreateTip />} />
               <Route path="tips/:id" element={<UpdateTip />} /> 
             </Route>
