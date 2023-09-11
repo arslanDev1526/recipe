@@ -108,7 +108,6 @@ const RecipeInfo = () => {
 
           {isInputFocused && (
             <span className={`${styles["input-valid"]}`}>
-              {" "}
               {inputValue.length} / 50
             </span>
           )}

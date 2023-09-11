@@ -1,80 +1,16 @@
 import React, { useState } from "react";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faHome } from "@fortawesome/free-solid-svg-icons";
-// import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-// import { faSquarePlus } from "@fortawesome/free-solid-svg-icons";
-// import { faEnvelopeOpen } from "@fortawesome/free-solid-svg-icons";
-// import { faUser } from "@fortawesome/free-solid-svg-icons";
 import styles from "./header.module.css";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-// import NavLink from "react-bootstrap/NavLink";
 import LinkItem from "./linkitem";
-import CondationalNav from "./condationalnav"
+import CondationalNav from "./condationalnav";
+import navItems from "./navitem";
 
-import navItems from "./navitem"
-
-
-// const navItems = [
-//   {
-//     icon: faHome,
-//     redirectPath: "/home",
-//     label: "Home",
-//   },
-//   {
-//     icon: faMagnifyingGlass,
-//     redirectPath: "/search",
-//     label: "Search",
-//   },
-//   {
-//     icon: faSquarePlus,
-//     redirectPath: "/create",
-//     label: "Create",
-//   },
-//   {
-//     icon: faEnvelopeOpen,
-//     redirectPath: "/activity",
-//     label: "Activity",
-//   },
-//   {
-//     icon: faUser,
-//     redirectPath: "/profile",
-//     label: "Profile",
-//   },
-// ];
-
-// const useIsActiveLink = (link) => {
-//   const location = useLocation();
-//   return location.pathname === link;
-// };
-
-// const LinkItem = ({ icon, eventKey, redirectPath, label }) => {
-//   const isActiveLink = useIsActiveLink(redirectPath);
-
-//   return (
-//     <div className="d-flex gap-2 justify-content-center align-items-center gap-sm-1 ">
-//       <FontAwesomeIcon className={styles.icon} icon={icon} />
-//       <NavLink
-//         as={Link}
-//         eventKey={String(eventKey)}
-//         to={redirectPath}
-//         className={`p-sm-0 ${styles["nav-links"]} ${
-//           isActiveLink ? styles.active : ""
-//         } `}
-//       >
-//         {label}
-//       </NavLink>
-//     </div>
-//   );
-// };
-
-
-{/* <LinkItem/> */}
-
-function Header() {
+function Header({handleSubmit}) {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const location = useLocation();
 
@@ -85,8 +21,10 @@ function Header() {
   const ignoreRoutes = ["/", "/signin", "/categ"];
   if (ignoreRoutes.includes(location.pathname)) return null;
 
-  const secondNav = ["/tips", "/createRecipe"];
-  if (secondNav.includes(location.pathname)) return <CondationalNav/>;
+  const secondNav = ["/profile/tips/create", "/createRecipe"];
+  if (secondNav.includes(location.pathname)) return <CondationalNav handleSubmit={handleSubmit} />;
+
+  if (/tips\/\d+/.test(location.pathname)) return <CondationalNav handleSubmit={handleSubmit} />;
 
   return (
     <>

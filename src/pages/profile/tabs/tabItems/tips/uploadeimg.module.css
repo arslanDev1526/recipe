@@ -1,0 +1,36 @@
+.del-btn { 
+    border: none;
+    background-color: orange;
+    border-radius: 1rem ;
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    cursor: pointer;
+    z-index: 1;
+    top: 1.2rem;
+    right: .5rem;
+  }
+  
+  .del-btn:hover { 
+    cursor: pointer;
+  }
+
+  .img-card { 
+    position: relative;
+   
+  }
+
+  .img { 
+    max-width: 100%;
+    width: 21rem;
+    height: 300px ;
+   }
+
+   @media (min-width: 768px) {
+    
+  .img { 
+    max-width: 100%;
+    width: 38rem;
+    height: 300px ;
+   }
+   }

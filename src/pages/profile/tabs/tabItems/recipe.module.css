@@ -12,7 +12,15 @@
   height: 400px;
 }
 
+.saved-link {
+  text-decoration: none;
+  background-color: #4a4a4a;
+  color: white;
+}
 
+.saved-link:hover {
+  opacity: 0.9;
+}
 
 /* tabs component styling */
 
@@ -20,7 +28,10 @@
   width: 23.5rem;
 }
 
+.no-tip-section  { 
 
+  height: 200px;
+}
 @media (min-width: 768px) {
   .tabs-container {
     width: 40rem;
