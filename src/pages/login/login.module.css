@@ -1,9 +1,5 @@
-
-
-.wrapper{ 
- 
-   min-height: 100vh;
-   
+.wrapper {
+  min-height: 100vh;
 }
 
 .signup-btn {
@@ -21,25 +17,26 @@
 
 input[type="text"]:focus {
   outline: none;
-
 }
 
 input[type="email"]:focus {
   outline: none;
- 
 }
 
 input[type="password"]:focus {
   outline: none;
- 
+}
+
+@media (max-width:500px) {
+
+  .fs-sm-14 { 
+    font-size: 14px;
+  }
 }
 
 @media (min-width: 1240px) {
- 
-
   .card {
     width: 30rem;
-
     margin-left: 2.5rem;
   }
 }

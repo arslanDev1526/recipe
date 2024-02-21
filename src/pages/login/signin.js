@@ -43,22 +43,26 @@ const SignIn = () => {
 
   return (
     <>
-    <div className={`  d-flex flex-column justify-content-center align-items-center ${styles.wrapper}`}> 
+    <div className={`d-flex flex-column justify-content-center align-items-center ${styles.wrapper}`}> 
       <Container>
         <div className="">
           <h1 className="text-center">Sign In</h1>
           <p className="text-center">Put your name and email here</p>
-
           <div className="row justify-content-center">
             <div className="col-sm-8 col-md-6 col-lg-6">
               <Card className={` d-flex flex-column vh-75 ${styles.card}`}>
                 <form
-                  className="d-flex flex-column gap-3"
+                  className="d-flex flex-column gap-4"
                   onSubmit={handleSubmit}
                 >
-                  <div className="d-flex flex-column gap-1 mt-4"></div>
-                  <div className="d-flex flex-column gap-1">
-                    <label className="mx-4">Email Address</label>
+                  <div className="d-flex flex-column gap-1 mt-4">
+                    <div className="d-flex justify-content-between mb-1"> 
+                    <label className="ms-4">Email Address</label>
+                    {error.email && (
+                      <span className={`mx-3 text-danger  ${styles['fs-sm-14']}`}>{error.email}</span>
+                    )}
+                    </div>
+                   
                     <input
                       className="p-2 rounded mx-3 border"
                       type="email"
@@ -66,13 +70,18 @@ const SignIn = () => {
                       onChange={handleEmail}
                       value={email}
                     />
-                    {error.email && (
-                      <span className="mx-3 text-danger">{error.email}</span>
-                    )}
+                   
                   </div>
 
                   <div className="d-flex flex-column gap-1">
-                    <label className="mx-4">Password</label>
+                    <div class="d-flex justify-content-between mb-1"> 
+                    <label className="ms-4">Password</label>
+                    {error.password && (
+                      <span className={`mx-3 text-danger  ${styles['fs-sm-14']}`}>
+                        {error.password}
+                      </span>
+                    )}
+                    </div>
                     <input
                       className="p-2 rounded mx-3 border"
                       type="password"
@@ -80,13 +89,8 @@ const SignIn = () => {
                       onChange={handlePassword}
                       value={password}
                     />
-                    {error.password && (
-                      <span className=" mx-3 text-danger">
-                        {error.password}
-                      </span>
-                    )}
+                   
                   </div>
-
                   <button
                     className={`mx-3 py-2 mb-4 my-1 rounded text-center  ${styles["signup-btn"]} `}
                   >

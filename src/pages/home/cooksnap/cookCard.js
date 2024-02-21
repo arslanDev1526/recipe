@@ -54,7 +54,7 @@ function CookCard({ cardsData }) {
         },
       },
       {
-        breakpoint: 768,
+        breakpoint: 769,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
@@ -62,7 +62,14 @@ function CookCard({ cardsData }) {
         },
       },
       {
-        breakpoint: 375,
+        breakpoint: 426,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 376,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
