@@ -2,10 +2,6 @@ import React from 'react'
 import { Link, useLocation } from "react-router-dom";
 import NavLink from "react-bootstrap/NavLink";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
-
-
-
 import styles from "./header.module.css";
 
 
@@ -15,12 +11,10 @@ const useIsActiveLink = (link) => {
   };
  
 const LinkItem = ({ icon, eventKey, redirectPath, label } ) => {
-
     const isActiveLink = useIsActiveLink(redirectPath);
 
   return (
-  
-    <div className="d-flex gap-2 justify-content-center align-items-center gap-sm-1 ">
+    <div className="d-flex gap-2 justify-content-center align-items-center gap-1 ">
     <FontAwesomeIcon className={styles.icon} icon={icon} />
     <NavLink
       as={Link}

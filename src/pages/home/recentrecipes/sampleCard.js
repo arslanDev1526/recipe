@@ -9,12 +9,11 @@ const SampleCard = ({ cards }) => {
 
   return (
     <Container className={`${styles.container}`}>
-      <h4 className={` px-4 px-sm-0 mx-2 mx-sm-0`}>Recent Recipes</h4>
+      <h4 className={`px-4 px-md-0 px-lg-0 mx-2 mx-md-0 mx-lg-0`}>Recent Recipes</h4>
 
-      <div className={`d-flex flex-wrap justify-content-between align-items-center`}>
+      <div className={`d-flex flex-wrap justify-content-center justify-content-md-between justify-content-lg-between align-items-center`}>
         {cards.map((card, index) => (
           <>
-
           <div className={`${styles.wrapper}`}>
             <div
               className={`d-flex justify-content-between mb-1  ${styles["container-header"]}`}
@@ -27,11 +26,9 @@ const SampleCard = ({ cards }) => {
                   alt="img"
                 />
                 <span className="mx-2">{card.username}</span>
-              
               </div>
               <div>{card.svgCode}</div>
             </div>
-
             <Card style={{ width: "18rem" }}>
               <Card.Img variant="top" src={card.recipeimg} />
               <Card.Body>
@@ -47,8 +44,6 @@ const SampleCard = ({ cards }) => {
               </Card.Body>
             </Card>
             </div>
-
-           
           </>
         ))}
       </div>

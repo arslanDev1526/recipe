@@ -25,8 +25,6 @@ const Home = () => {
       </div>
 
       <div className="d-flex flex-column align-items-center mt-sm-5">
-
-     
         <SearchBox />
         <Link
           to="/categ"

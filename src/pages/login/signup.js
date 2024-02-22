@@ -55,11 +55,12 @@ const SignUp = () => {
         className={`d-flex flex-column justify-content-center align-items-center ${styles.wrapper}`}
       >
         <Container>
-          <div className="">
+          <div className="mt-4 mt-md-0 mt-lg-0"> 
+
             <h1 className="text-center">Sign Up</h1>
             <p className="text-center">Put your name and email here</p>
             <div className="row justify-content-center">
-              <div className="col-sm-8 col-md-6 col-lg-6">
+              <div className="col-md-7 col-lg-6">
                 <Card className={`d-flex flex-column vh-75 ${styles.card}`}>
                   <form
                     className="d-flex flex-column gap-4"

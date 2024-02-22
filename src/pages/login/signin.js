@@ -49,7 +49,7 @@ const SignIn = () => {
           <h1 className="text-center">Sign In</h1>
           <p className="text-center">Put your name and email here</p>
           <div className="row justify-content-center">
-            <div className="col-sm-8 col-md-6 col-lg-6">
+            <div className="col-11 col-md-7 col-lg-6">
               <Card className={` d-flex flex-column vh-75 ${styles.card}`}>
                 <form
                   className="d-flex flex-column gap-4"

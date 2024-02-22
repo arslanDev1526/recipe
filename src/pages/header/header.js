@@ -23,7 +23,6 @@ function Header({handleSubmit}) {
 
   const secondNav = ["/profile/tips/create", "/createRecipe"];
   if (secondNav.includes(location.pathname)) return <CondationalNav handleSubmit={handleSubmit} />;
-
   if (/tips\/\d+/.test(location.pathname)) return <CondationalNav handleSubmit={handleSubmit} />;
 
   return (
@@ -31,7 +30,7 @@ function Header({handleSubmit}) {
       <Navbar
         className={`fixed-top ${styles.navbar}`}
         collapseOnSelect={true}
-        expand="sm"
+        expand="md"
         bg="#3b82f680"
         data-bs-theme=" "
         onToggle={toggleNav}
